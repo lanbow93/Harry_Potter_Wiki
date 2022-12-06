@@ -23,6 +23,8 @@ An online application used to search for and edit information in regards to the 
 ### Wireframe
 [Initial Wireframe Created](https://www.figma.com/file/d8oN9hgF3u4swdTgBHwh3p/Harry_Potter_Wiki_Mobile?node-id=0%3A1&t=dXGGgJB9v4MblwTE-1)
 
+### Trello Board
+[Trello Board](https://trello.com/b/d6xOuI3O/unit2projectpotteruniversewiki)
 ### Plan for Development
 | Approval Date: XX/XX/XXXX |    Minimum Viable Product (MVP)   | Additional Time| Advanced 
 |-----| :-----------: | :-------: | :----:
