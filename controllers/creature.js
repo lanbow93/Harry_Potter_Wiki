@@ -33,7 +33,7 @@ CreatureRouter.get("/seed", async (request, response) => {
 // Index routes for Creatures
 CreatureRouter.get("/", async (request, response) => {
     const creatures = await Creature.find({}).catch((error => errorCatcher(error, response)))
-    response.render("creatures/creature.ejs", {creatures})
+    response.render("creatures/index.ejs", {creatures})
 })
 
 
