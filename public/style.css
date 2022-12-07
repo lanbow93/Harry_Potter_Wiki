@@ -16,6 +16,10 @@
     align-items: center;
     justify-content: center;
 }
+.creatureEdit {
+    width: 30%;
+    height: 125%;
+}
 
 @media only screen and (max-width: 600px){
 	.largeImageDisplay {

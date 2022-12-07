@@ -25,15 +25,17 @@
     <div class="col-1"></div>
 </div>
 <div class="row mt-3 text-center">
-    <div class="col-1"></div>
-    <div class="col"><button class="btn btn-info" onclick="window.location.href='/creatures/<%= id %>/edit'">Edit Page</button></div>
-    <div class="col"><button class="btn btn-warning" onclick="window.location.href='/creatures'">Back To Creature List</button></div>
-    <div class="col"><form action="/creatures/<%= creature._id %>?_method=DELETE" method="post">
-        <input type="submit" value="Delete <%= creature.creatureName[0].toUpperCase() + creature.creatureName.slice(1).toLowerCase() %>" class="btn bg-danger">
-    </form></div>
-    <div class="col-1"></div>
 
-    <!-- /items/:id -->
-    
-    
+    <div class="col">
+        <button class="btn btn-info creatureEdit" onclick="window.location.href='/creatures/<%= id %>/edit'">Edit Page</button>
+        <button class="btn btn-warning creatureEdit" onclick="window.location.href='/creatures'">Back To Creature List</button>
+    </div>
+
+</div>
+<div class="row mt-4">
+    <div class="col text-center">
+        <form action="/creatures/<%= creature._id %>?_method=DELETE" method="post" class="btn-group w-50">
+            <button class="btn btn-danger creatureEdit"><input type="submit" value="Delete Entry" class="btn bg-danger"></button>
+        </form>
+    </div>
 </div>
