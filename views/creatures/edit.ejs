@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-1 justify-center"></div>
     <div class="col">
-        <form action="/creatures/ <%= creature._id %>" method="post">
+        <form action="/creatures/<%=id%>?_method=PUT" method="post">
             <div class="row">
                 <div class="col text-end"><p>Species Name:</p></div>
                 <div class="col ful"><input type="text" name="creatureName" placeholder="Species Name" value="<%= creature.creatureName %>" class="fullWidth"></div>
@@ -36,12 +36,15 @@
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <textarea id="txtid" name="description" rows="4" cols="50" maxlength="200" class="fullWidth"><%= creature.description%>
+                    <textarea id="txtid" name="description" rows="4" cols="50" class="fullWidth"><%= creature.description%>
                 </textarea></div>
             </div>
             <div class="row mt-3">
                 <div class="col text-center">
                     <input type="submit" value="Update Creature Information" class="btn bg-success text-white fw-bold">
+                </div>
+                <div class="col">
+                    <button class="btn bg-danger text-white fw-bold" >Cancel</button>
                 </div>
             </div>
             

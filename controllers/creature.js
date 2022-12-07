@@ -41,13 +41,18 @@ CreatureRouter.get("/", async (request, response) => {
 // Destroy route for Creatures ~~~ /items/:id ~~~ (DELETE)
 
 // Update route for Creatures ~~~ /items/:id ~~~ (PUT)
+CreatureRouter.put("/:id", async (request, response) => {
+    request.body.isRare = request.body.isRare ? true : false;
+    await Creature.findByIdAndUpdate(request.params.id, request.body).catch((error => errorCatcher(error, response)))
+    response.redirect("/creatures")
+})
 
 // Create route for Creatures ~~~ /items ~~~ (POST)
 
 // Edit route for Creatures ~~~ /items/:id/edit ~~~ (GET)
 CreatureRouter.get("/:id/edit", async (request, response) => {
     const creature = await Creature.findById(request.params.id).catch((error => errorCatcher(error, response)))
-    response.render("creatures/edit.ejs", {creature})
+    response.render("creatures/edit.ejs", {creature: creature, id: request.params.id})
 })
 
 // Show route for Creatures ~~~ /items/:id ~~~ (GET)
