@@ -1,0 +1,33 @@
+{
+  "name": "harry_potter_wiki",
+  "version": "1.0.0",
+  "description": "Function CRUD application themed as a Harry Potter Wiki",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanbow93/Harry_Potter_Wiki.git"
+  },
+  "keywords": [
+    "harry_potter"
+  ],
+  "author": "Lance Bowers Jr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lanbow93/Harry_Potter_Wiki/issues"
+  },
+  "homepage": "https://github.com/lanbow93/Harry_Potter_Wiki#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0"
+  }
+}
