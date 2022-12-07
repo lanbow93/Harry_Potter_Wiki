@@ -30,11 +30,26 @@ CreatureRouter.get("/seed", async (request, response) => {
     response.json(creatures)
 })
 
-// Index routes for Creatures
+// Index route for Creatures: ~~~ /items ~~~ (GET)
 CreatureRouter.get("/", async (request, response) => {
     const creatures = await Creature.find({}).catch((error => errorCatcher(error, response)))
     response.render("creatures/index.ejs", {creatures})
 })
 
+// New route for Creatures: ~~~ /items/new ~~~ (GET)
+
+// Destroy route for Creatures ~~~ /items/:id ~~~ (DELETE)
+
+// Update route for Creatures ~~~ /items/:id ~~~ (PUT)
+
+// Create route for Creatures ~~~ /items ~~~ (POST)
+
+// Edit route for Creatures ~~~ /items/:id:edit ~~~ (GET)
+
+// Show route for Creatures ~~~ /items/:id ~~~ (GET)
+CreatureRouter.get("/:id", async (request, response) => {
+    const creature = await Creature.findById(request.params.id).catch((error => errorCatcher(error, response)))
+    response.render("creatures/show.ejs", {creature: creature, index: request.params.id})
+})
 
 module.exports = CreatureRouter

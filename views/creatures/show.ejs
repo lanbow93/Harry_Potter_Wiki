@@ -1,0 +1,34 @@
+<%- include("../partials/head.ejs")  %>
+
+<div class="row">
+    <div class="col"><h1 class="text-center"><%= creature.creatureName %></h1></div>
+</div>
+<div class="centerImage">
+    <div class="row largeImageDisplay">
+        <img src="<%= creature.imageURL %>" alt="" >
+    </div>    
+</div>
+<div class="row ">
+    <div class="col"></div>
+    <div class="col justify-center">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>header1</th>
+                <th>header2</th>
+              </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>text1.1</td>
+                 <td>text1.2</td>
+               </tr>
+               <tr>
+                 <td>text2.1</td>
+                 <td>text2.2</td>
+               </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col"></div>
+</div>

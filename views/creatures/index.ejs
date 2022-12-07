@@ -17,5 +17,10 @@
         <div class="col-6 text-center px-0"><a href="/creatures/<%= creature._id%>"><img src="<%= creature.imageURL %>" alt="Image of a <%= creature.creatureName %>" class="img-thumbnail"></a></div>
         <div class="col-3"></div>
     </div>
-    
 <% })  %>
+
+<div class="row">
+    <div class="col text-center">
+        <button class="btn-group" onclick="window.location.href='/creatures/new'" >New Creature</button></a>
+    </div>
+</div>

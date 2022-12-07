@@ -1,0 +1,21 @@
+/* table, th, td {
+    border: 1px solid;
+  } */
+
+  h1 {
+    color: aquamarine;
+  }
+.largeImageDisplay {
+    width: 50%;
+}
+.centerImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px){
+	.largeImageDisplay {
+        width: 100%;
+    }
+}
