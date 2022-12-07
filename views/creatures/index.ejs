@@ -1,26 +1,29 @@
 <%- include("../partials/head.ejs")  %>
 
-<div class="row ">
-    
-    <div class="col"><h1 class="text-center">List of Creatures</h1></div>
-    
-</div>
-<% creatures.forEach( (creature) => { %>
-    <br>
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6 text-center"><h3><%= creature.creatureName %></h3></div>
-        <div class="col-3"></div>
+<div class="container">
+    <div class="row text-center">
+        <p>(NAVMENU)</p>
     </div>
-    <div class="row">
-        <div class="col-3"></div>
-        <div class="col-6 text-center px-0"><a href="/creatures/<%= creature._id%>"><img src="<%= creature.imageURL %>" alt="Image of a <%= creature.creatureName %>" class="img-thumbnail"></a></div>
-        <div class="col-3"></div>
+    <div class="row ">
+        <div class="col"><h1 class="text-center">List of Creatures</h1></div>
     </div>
-<% })  %>
-
-<div class="row">
-    <div class="col text-center mt-3">
-        <button class="btn bg-info" onclick="window.location.href='/creatures/new'" >New Creature</button></a>
+    <% creatures.forEach( (creature) => { %>
+        <br>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 text-center"><h3><%= creature.creatureName %></h3></div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 text-center px-0"><a href="/creatures/<%= creature._id%>"><img src="<%= creature.imageURL %>" alt="Image of a <%= creature.creatureName %>" class="img-thumbnail"></a></div>
+            <div class="col-3"></div>
+        </div>
+    <% })  %>
+    
+    <div class="row">
+        <div class="col text-center mt-3">
+            <button class="btn bg-info" onclick="window.location.href='/creatures/new'" >New Creature</button></a>
+        </div>
     </div>
 </div>
