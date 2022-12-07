@@ -27,7 +27,7 @@ CreatureRouter.get("/seed", async (request, response) => {
             description: "The Pixie was able to fly, and enjoyed lifting people up by their ears and depositing them on the tops of trees and buildings, showing incredible strength for creatures of their tiny size. It could also steal things. In Cornwall in the 17th century, Dymphna Furmage, a witch on holiday, was abducted by Pixies. This led to a lifelong fear of them, which drove her to request that the British Ministry of Magic humanely eradicate the pixie species. Her request was declined, and she died in 1692."
         },
     ])
-    res.json(creatures)
+    response.json(creatures)
 })
 
 // Index routes for Creatures
