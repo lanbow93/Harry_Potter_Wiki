@@ -28,7 +28,12 @@
     <div class="col-1"></div>
     <div class="col"><button class="btn btn-info" onclick="window.location.href='/creatures/<%= id %>/edit'">Edit Page</button></div>
     <div class="col"><button class="btn btn-warning" onclick="window.location.href='/creatures'">Back To Creature List</button></div>
-    <div class="col"><button class="btn btn-danger">Delete Page</button></div>
+    <div class="col"><form action="/creatures/<%= creature._id %>?_method=DELETE" method="post">
+        <input type="submit" value="Delete <%= creature.creatureName[0].toUpperCase() + creature.creatureName.slice(1).toLowerCase() %>" class="btn bg-danger">
+    </form></div>
     <div class="col-1"></div>
+
+    <!-- /items/:id -->
+    
     
 </div>

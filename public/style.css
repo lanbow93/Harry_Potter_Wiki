@@ -8,6 +8,9 @@
 .largeImageDisplay {
     width: 50%;
 }
+.fullWidth {
+    width: 100%;
+}
 .centerImage {
     display: flex;
     align-items: center;

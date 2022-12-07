@@ -44,7 +44,11 @@ CreatureRouter.get("/", async (request, response) => {
 
 // Create route for Creatures ~~~ /items ~~~ (POST)
 
-// Edit route for Creatures ~~~ /items/:id:edit ~~~ (GET)
+// Edit route for Creatures ~~~ /items/:id/edit ~~~ (GET)
+CreatureRouter.get("/:id/edit", async (request, response) => {
+    const creature = await Creature.findById(request.params.id).catch((error => errorCatcher(error, response)))
+    response.render("creatures/edit.ejs", {creature})
+})
 
 // Show route for Creatures ~~~ /items/:id ~~~ (GET)
 CreatureRouter.get("/:id", async (request, response) => {
