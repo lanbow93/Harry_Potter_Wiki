@@ -42,6 +42,10 @@ CreatureRouter.get("/new", (request, response) => {
 })
 
 // Destroy route for Creatures ~~~ /items/:id ~~~ (DELETE)
+CreatureRouter.delete("/:id", async (request, response) => {
+    await Creature.findByIdAndRemove(request.params.id).catch((error => errorCatcher(error, response)))
+    response.redirect("/creatures")
+})
 
 // Update route for Creatures ~~~ /items/:id ~~~ (PUT)
 CreatureRouter.put("/:id", async (request, response) => {
