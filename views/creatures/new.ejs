@@ -4,50 +4,52 @@
 </div>
 <div class="row">
     <div class="col text-center">
-        <h1 >Edit <%= creature.creatureName %></h1>
+        <h1>Log New Creature</h1>
     </div>
 </div>
 <div class="row">
     <div class="col-1 justify-center"></div>
     <div class="col">
-        <form action="/creatures/<%=id%>?_method=PUT" method="post">
+        <form action="/creatures/" method="post">
             <div class="row">
                 <div class="col text-end"><p>Species Name:</p></div>
-                <div class="col ful"><input type="text" name="creatureName" placeholder="Species Name" value="<%= creature.creatureName %>" class="fullWidth"></div>
+                <div class="col ful"><input type="text" name="creatureName" placeholder="Species Name" class="fullWidth"></div>
             </div>
             <div class="row">
                 <div class="col text-end"><p>M.O.M. Classification:</p></div>
-                <div class="col"><input type="text" name="ministryClassification" placeholder="(XXXX)" value="<%= creature.ministryClassification %>" ></div>
+                <div class="col"><input type="text" name="ministryClassification" placeholder="(XXXX)" ></div>
             </div>
             <div class="row">
                 <div class="col text-end"><p>Location:</p></div>
-                <div class="col"><input type="text" name="creatureLocation" placeholder="Location of Species" value="<%= creature.creatureLocation %>" class="fullWidth"></div>
+                <div class="col"><input type="text" name="creatureLocation" placeholder="Location of Species" class="fullWidth"></div>
             </div>
             <div class="row">
                 <div class="col text-end"><p>Image URL:</p></div>
-                <div class="col"><input type="text" name="imageURL" placeholder="Image URL" value="<%= creature.imageURL %>" class="fullWidth"></div>
+                <div class="col"><input type="text" name="imageURL" placeholder="Image URL" class="fullWidth"></div>
             </div>
             <div class="row">
                 <div class="col text-end"><p>Check Box If Rare:</p></div>
-                <div class="col" class="fullWidth"><input type="checkbox" name="isRare" <%= creature.isRare ? "checked" : ""  %>></div>
+                <div class="col" class="fullWidth"><input type="checkbox" name="isRare"></div>
             </div>
             <div class="row">
                 <div class="col text-center"><p>Description:</p></div>
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <textarea id="txtid" name="description" rows="4" cols="50" class="fullWidth"><%= creature.description%>
-                </textarea></div>
-            </div>
-            <div class="row mt-3">
-                <div class="col text-center ">
-                    <input type="submit" value="Update Creature Information" class="btn bg-success text-white fw-bold largeImageDisplay">
+                    <textarea id="txtid" name="description" rows="4" cols="50" class="fullWidth"></textarea>
                 </div>
             </div>
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <input type="submit" value="Log New Creature" class="btn bg-success text-white fw-bold largeImageDisplay">
+                </div>
+            </div>
+            
         </form>
         <div class="col text-center mt-3 ">
             <button class="btn bg-danger text-white fw-bold largeImageDisplay" onclick="window.location.href='/creatures'">Cancel</button>
         </div>
     </div>
     <div class="col-1"></div>
+    
 </div>

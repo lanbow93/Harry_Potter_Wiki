@@ -37,6 +37,9 @@ CreatureRouter.get("/", async (request, response) => {
 })
 
 // New route for Creatures: ~~~ /items/new ~~~ (GET)
+CreatureRouter.get("/new", (request, response) => {
+    response.render("creatures/new.ejs")
+})
 
 // Destroy route for Creatures ~~~ /items/:id ~~~ (DELETE)
 
@@ -48,6 +51,11 @@ CreatureRouter.put("/:id", async (request, response) => {
 })
 
 // Create route for Creatures ~~~ /items ~~~ (POST)
+CreatureRouter.post("/", async (request, response) => {
+    request.body.isRare = request.body.isRare ? true : false;
+    await Creature.create(request.body).catch((error => errorCatcher(error, response)))
+    response.redirect("/creatures")
+})
 
 // Edit route for Creatures ~~~ /items/:id/edit ~~~ (GET)
 CreatureRouter.get("/:id/edit", async (request, response) => {
