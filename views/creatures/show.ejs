@@ -8,27 +8,27 @@
         <img src="<%= creature.imageURL %>" alt="" >
     </div>    
 </div>
-<div class="row ">
-    <div class="col"></div>
-    <div class="col justify-center">
-        <table class="table">
-            <thead>
-              <tr>
-                <th>header1</th>
-                <th>header2</th>
-              </tr>
-             </thead>
-             <tbody>
-               <tr>
-                 <td>text1.1</td>
-                 <td>text1.2</td>
-               </tr>
-               <tr>
-                 <td>text2.1</td>
-                 <td>text2.2</td>
-               </tr>
-            </tbody>
-          </table>
-    </div>
-    <div class="col"></div>
+<div class="row mt-3">
+    <div class="col-1"></div>
+    <div class="col-5 border text-center"><p>M.O.M. Classification:<br><%= creature.ministryClassification%></p></div>
+    <div class="col-5 border text-center"><p>Rarity Status:<br><%= creature.isRare ? "RARE" : "COMMON"  %></p></div>
+    <div class="col-1"></div>
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col text-center border"><p>Location Found:<br><%= creature.creatureLocation %></p></div>
+    <div class="col-1"></div>
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col border"><p>Description:<br><%= creature.description %></p></div>
+    <div class="col-1"></div>
+</div>
+<div class="row mt-3 text-center">
+    <div class="col-1"></div>
+    <div class="col"><button class="btn btn-info" onclick="window.location.href='/creatures/<%= id %>/edit'">Edit Page</button></div>
+    <div class="col"><button class="btn btn-warning" onclick="window.location.href='/creatures'">Back To Creature List</button></div>
+    <div class="col"><button class="btn btn-danger">Delete Page</button></div>
+    <div class="col-1"></div>
+    
 </div>

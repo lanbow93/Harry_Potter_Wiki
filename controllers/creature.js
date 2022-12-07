@@ -49,7 +49,7 @@ CreatureRouter.get("/", async (request, response) => {
 // Show route for Creatures ~~~ /items/:id ~~~ (GET)
 CreatureRouter.get("/:id", async (request, response) => {
     const creature = await Creature.findById(request.params.id).catch((error => errorCatcher(error, response)))
-    response.render("creatures/show.ejs", {creature: creature, index: request.params.id})
+    response.render("creatures/show.ejs", {creature: creature, id: request.params.id})
 })
 
 module.exports = CreatureRouter
