@@ -11,7 +11,7 @@
     <div class="row d-flex justify-content-between mt-3">
         <%for (let i=0; i<creatures.length; i++) { %>
         <div class="col-3 text-center px-0">
-            <h3 class="text-white"><%= creatures[i].creatureName %></h3>
+            <h2 class="text-white mt-3"><%= creatures[i].creatureName %></h2>
             <a href="/creatures/<%= creatures[i]._id%>">
                 <img src="<%= creatures[i].imageURL %>" alt="Image of a <%= creatures[i].creatureName %>" class="indexImage">
             </a>
