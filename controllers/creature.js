@@ -3,7 +3,8 @@ const Creature = require("../models/creature");
 
 // Ways to deal with errors
 function errorCatcher(error, response) {
-    response.json(error)
+    // response.json(error)
+    response.render("landingPages/error.ejs", {error})
 }
 
 // Index route for Creatures: ~~~ /items ~~~ (GET)
