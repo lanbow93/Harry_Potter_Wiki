@@ -3,8 +3,9 @@ const Creature = require("../models/creature");
 
 // Ways to deal with errors
 function errorCatcher(error, response) {
-    // response.json(error)
-    response.render("landingPages/error.ejs", {error})
+    
+    // response.render("landingPages/error.ejs", {error})
+    console.log(error)
 }
 
 // Index route for Creatures: ~~~ /items ~~~ (GET)
@@ -34,7 +35,9 @@ CreatureRouter.put("/:id", async (request, response) => {
 // Create route for Creatures ~~~ /items ~~~ (POST)
 CreatureRouter.post("/", async (request, response) => {
     request.body.isRare = request.body.isRare ? true : false;
-    await Creature.create(request.body).catch((error => errorCatcher(error, response)))
+    const creatureAddFunction = await Creature.create(request.body).catch((error => errorCatcher(error, response)))
+
+    // Below here I need to run ONLY if it DOESN'T have errors
     response.redirect("/creatures")
 })
 

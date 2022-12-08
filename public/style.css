@@ -6,18 +6,16 @@
   }
 
 body { 
-    background: url(https://images.ctfassets.net/usf1vwtuqyxm/3QQaEkThAnIAiXveGhJYD9/f79a571dbe9fd456d65e783040601fdc/hogwarts-castle-.jpg) no-repeat 
-      center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    
+  background: url(https://images.ctfassets.net/usf1vwtuqyxm/3QQaEkThAnIAiXveGhJYD9/f79a571dbe9fd456d65e783040601fdc/hogwarts-castle-.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  
   }
 
-  h1,h2,h3,h4,h5 {
-    font-family: 'Henny Penny', cursive;
-    color: white;
+h1,h2,h3,h4,h5 {
+  font-family: 'Henny Penny', cursive;
+  color: white;
 }
 
 a, a:hover, a:focus, a:active {
@@ -36,7 +34,7 @@ input[type=checkbox] {
 }
 
 .blackBackground {
-    box-shadow: inset 1000px 1000px 1000px 1000px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.8);
 }
 
 .largeImageDisplay {
@@ -45,9 +43,8 @@ input[type=checkbox] {
 
 .landingImage {
   width: 35%;
-  box-shadow: inset 1000px 1000px 1000px 1000px rgba(255, 255, 255, 0.26);
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
 }
-
 .fullWidth {
     width: 100%;
 }
@@ -59,6 +56,12 @@ input[type=checkbox] {
 .creatureEdit {
     width: 30%;
     height: 125%;
+}
+
+.indexImage {
+  width: 20rem; 
+  height: 20rem;
+  object-fit: cover;
 }
 
 @media only screen and (max-width: 600px){

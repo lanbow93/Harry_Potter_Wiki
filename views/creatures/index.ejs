@@ -12,7 +12,9 @@
         <%for (let i=0; i<creatures.length; i++) { %>
         <div class="col-3 text-center px-0">
             <h3 class="text-white"><%= creatures[i].creatureName %></h3>
-            <a href="/creatures/<%= creatures[i]._id%>"><img src="<%= creatures[i].imageURL %>" alt="Image of a <%= creatures[i].creatureName %>" class="img-thumbnail"></a>
+            <a href="/creatures/<%= creatures[i]._id%>">
+                <img src="<%= creatures[i].imageURL %>" alt="Image of a <%= creatures[i].creatureName %>" class="indexImage">
+            </a>
         </div>
 
         <% if ((i+1) % 3 === 0) { %>
