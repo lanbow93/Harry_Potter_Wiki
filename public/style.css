@@ -41,6 +41,10 @@ p {
     width: 30%;
     height: 125%;
 }
+input[type=checkbox] {
+    width: 2rem;
+    height: 2rem
+}
 p {
     font-size: 1.6rem
 }
