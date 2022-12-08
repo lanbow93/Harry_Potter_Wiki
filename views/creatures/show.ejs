@@ -1,41 +1,43 @@
 <%- include("../partials/head.ejs")  %>
 
-<div class="row">
-    <div class="col"><h1 class="text-center"><%= creature.creatureName %></h1></div>
-</div>
-<div class="centerImage">
-    <div class="row largeImageDisplay">
-        <img src="<%= creature.imageURL %>" alt="" >
-    </div>    
-</div>
-<div class="row mt-3">
-    <div class="col-1"></div>
-    <div class="col-5 border text-center"><p>M.O.M. Classification:<br><%= creature.ministryClassification%></p></div>
-    <div class="col-5 border text-center"><p>Rarity Status:<br><%= creature.isRare ? "RARE" : "COMMON"  %></p></div>
-    <div class="col-1"></div>
-</div>
-<div class="row">
-    <div class="col-1"></div>
-    <div class="col text-center border"><p>Location Found:<br><%= creature.creatureLocation %></p></div>
-    <div class="col-1"></div>
-</div>
-<div class="row">
-    <div class="col-1"></div>
-    <div class="col border"><p>Description:<br><%= creature.description %></p></div>
-    <div class="col-1"></div>
-</div>
-<div class="row mt-3 text-center">
-
-    <div class="col">
-        <button class="btn btn-info creatureEdit" onclick="window.location.href='/creatures/<%=id%>/edit'">Edit Page</button>
-        <button class="btn btn-warning creatureEdit" onclick="window.location.href='/creatures'">Back To Creature List</button>
+<div class="container">
+    <div class="row">
+        <div class="col"><h1 class="text-center"><%= creature.creatureName %></h1></div>
     </div>
-
-</div>
-<div class="row mt-4">
-    <div class="col text-center">
-        <form action="/creatures/<%= creature._id %>?_method=DELETE" method="post" class="btn-group w-50">
-            <button class="btn btn-danger creatureEdit"><input type="submit" value="Delete Entry" class="btn bg-danger"></button>
-        </form>
+    <div class="centerImage">
+        <div class="row largeImageDisplay">
+            <img src="<%= creature.imageURL %>" alt="" >
+        </div>    
+    </div>
+    <div class="row mt-3">
+        <div class="col-1"></div>
+        <div class="col-5 border text-center blackBackground"><p>M.O.M. Classification:<br><%= creature.ministryClassification%></p></div>
+        <div class="col-5 border text-center blackBackground"><p>Rarity Status:<br><%= creature.isRare ? "RARE" : "COMMON"  %></p></div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col text-center border blackBackground"><p>Location Found:<br><%= creature.creatureLocation %></p></div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col border blackBackground"><p>Description:<br><%= creature.description %></p></div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row mt-3 text-center">
+    
+        <div class="col">
+            <button class="btn btn-info creatureEdit" onclick="window.location.href='/creatures/<%=id%>/edit'">Edit Page</button>
+            <button class="btn btn-warning creatureEdit" onclick="window.location.href='/creatures'">Back To Creature List</button>
+        </div>
+    
+    </div>
+    <div class="row mt-4">
+        <div class="col text-center">
+            <form action="/creatures/<%= creature._id %>?_method=DELETE" method="post" class="btn-group w-50">
+                <button class="btn btn-danger creatureEdit"><input type="submit" value="Delete Entry" class="btn bg-danger"></button>
+            </form>
+        </div>
     </div>
 </div>

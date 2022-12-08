@@ -13,11 +13,11 @@
         <form action="/creatures/<%=id%>?_method=PUT" method="post">
             <div class="row">
                 <div class="col text-end"><p>Species Name:</p></div>
-                <div class="col ful"><input type="text" name="creatureName" placeholder="Species Name" value="<%= creature.creatureName %>" class="fullWidth"></div>
+                <div class="col"><input type="text" name="creatureName" placeholder="Species Name" value="<%= creature.creatureName %>" class="fullWidth"></div>
             </div>
             <div class="row">
                 <div class="col text-end"><p>M.O.M. Classification:</p></div>
-                <div class="col"><input type="text" name="ministryClassification" placeholder="(XXXX)" value="<%= creature.ministryClassification %>" ></div>
+                <div class="col"><input type="text" name="ministryClassification" placeholder="(XXXX)" value="<%= creature.ministryClassification %>" class="fullWidth"></div>
             </div>
             <div class="row">
                 <div class="col text-end"><p>Location:</p></div>

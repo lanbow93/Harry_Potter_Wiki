@@ -2,9 +2,13 @@
     border: 1px solid;
   } */
   *{
-    color: white;
     font-weight: bold;
   }
+
+h1,h2,h3,h4,h5 {
+    font-family: 'Henny Penny', cursive;
+    color: white;
+}
   body { 
     background: url(https://images.ctfassets.net/usf1vwtuqyxm/3QQaEkThAnIAiXveGhJYD9/f79a571dbe9fd456d65e783040601fdc/hogwarts-castle-.jpg) no-repeat 
       center center fixed; 
@@ -12,13 +16,16 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    box-shadow: inset 1000px 1000px 1000px 1000px rgba(255, 255, 255, 0.2);
     
   }
-
-  h1 {
-    color: aquamarine;
+  
+  .blackBackground {
+    box-shadow: inset 1000px 1000px 1000px 1000px rgba(0, 0, 0, 0.8);
   }
+  
+p {
+    color: white;
+}
 .largeImageDisplay {
     width: 50%;
 }
@@ -34,8 +41,13 @@
     width: 30%;
     height: 125%;
 }
-
+p {
+    font-size: 1.6rem
+}
 @media only screen and (max-width: 600px){
+    p {
+        font-size: 1rem;    
+    }
 	.largeImageDisplay {
         width: 100%;
     }
