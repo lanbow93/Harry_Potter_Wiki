@@ -18,7 +18,7 @@ app.use("/creatures", CreatureRouter)
 // Routes
 
 app.get("/", (request, response) => {
-    response.send(`Successfully reached the Harry Potter Wiki Server`)
+    response.render("landingPages/home.ejs")
 })
 
 // App listener

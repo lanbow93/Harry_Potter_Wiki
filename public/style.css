@@ -5,11 +5,7 @@
     font-weight: bold;
   }
 
-h1,h2,h3,h4,h5 {
-    font-family: 'Henny Penny', cursive;
-    color: white;
-}
-  body { 
+body { 
     background: url(https://images.ctfassets.net/usf1vwtuqyxm/3QQaEkThAnIAiXveGhJYD9/f79a571dbe9fd456d65e783040601fdc/hogwarts-castle-.jpg) no-repeat 
       center center fixed; 
     -webkit-background-size: cover;
@@ -18,17 +14,40 @@ h1,h2,h3,h4,h5 {
     background-size: cover;
     
   }
-  
-  .blackBackground {
-    box-shadow: inset 1000px 1000px 1000px 1000px rgba(0, 0, 0, 0.8);
-  }
-  
-p {
+
+  h1,h2,h3,h4,h5 {
+    font-family: 'Henny Penny', cursive;
     color: white;
 }
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  color: white;
+  font-size: 1.6rem
+}
+
+input[type=checkbox] {
+  width: 2rem;
+  height: rem
+}
+
+.blackBackground {
+    box-shadow: inset 1000px 1000px 1000px 1000px rgba(0, 0, 0, 0.8);
+}
+
 .largeImageDisplay {
     width: 50%;
 }
+
+.landingImage {
+  width: 35%;
+  box-shadow: inset 1000px 1000px 1000px 1000px rgba(255, 255, 255, 0.26);
+}
+
 .fullWidth {
     width: 100%;
 }
@@ -41,18 +60,26 @@ p {
     width: 30%;
     height: 125%;
 }
-input[type=checkbox] {
-    width: 2rem;
-    height: 2rem
-}
-p {
-    font-size: 1.6rem
-}
+
 @media only screen and (max-width: 600px){
-    p {
-        font-size: 1rem;    
-    }
-	.largeImageDisplay {
-        width: 100%;
-    }
+  p {
+      font-size: 1rem;    
+  }
+	
+  .landingTitle {
+    font-size: 3rem;
+    margin-top: 20%;
+  }
+  .largeImageDisplay {
+    width: 100%;
+  }
+
+  .landingImage {
+      width: 100%;
+  }
+
+  .verticallyAlign {
+    margin-top: 20%;
+  }
+
 }
