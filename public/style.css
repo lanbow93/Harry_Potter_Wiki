@@ -92,6 +92,10 @@ input[type=checkbox] {
   object-fit: cover;
 }
 
+.errorDiv {
+  margin-top: 20%;
+}
+
 [type=submit] {
   border: none;
 }

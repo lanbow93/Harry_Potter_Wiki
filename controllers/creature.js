@@ -1,19 +1,23 @@
 const CreatureRouter = require("express").Router()
 const Creature = require("../models/creature");
-
+let renderWasUsed = false;
 
 
 // Ways to deal with errors
 function errorCatcher(error, response) {
-    
-    // response.render("landingPages/error.ejs", {error})
-    console.log(error)
+    renderWasUsed = true;
+    response.render("landingPages/error.ejs", {error})
 }
 
 // Index route for Creatures: ~~~ /items ~~~ (GET)
 CreatureRouter.get("/", async (request, response) => {
     const creatures = await Creature.find({}).catch((error => errorCatcher(error, response)))
-    response.render("creatures/index.ejs", {creatures})
+
+    if (!renderWasUsed) {
+        response.render("creatures/index.ejs", {creatures})
+    } else {
+        renderWasUsed = false;
+    }
 })
 
 // New route for Creatures: ~~~ /items/new ~~~ (GET)
@@ -24,14 +28,22 @@ CreatureRouter.get("/new", (request, response) => {
 // Destroy route for Creatures ~~~ /items/:id ~~~ (DELETE)
 CreatureRouter.delete("/:id", async (request, response) => {
     await Creature.findByIdAndRemove(request.params.id).catch((error => errorCatcher(error, response)))
-    response.redirect("/creatures")
+    if (!renderWasUsed) {
+        response.redirect("/creatures")
+    } else {
+        renderWasUsed = false;
+    }
 })
 
 // Update route for Creatures ~~~ /items/:id ~~~ (PUT)
 CreatureRouter.put("/:id", async (request, response) => {
     request.body.isRare = request.body.isRare ? true : false;
     await Creature.findByIdAndUpdate(request.params.id, request.body).catch((error => errorCatcher(error, response)))
-    response.redirect("/creatures")
+    if (!renderWasUsed) {
+        response.redirect("/creatures")
+    } else {
+        renderWasUsed = false;
+    }
 })
 
 // Create route for Creatures ~~~ /items ~~~ (POST)
@@ -39,20 +51,33 @@ CreatureRouter.post("/", async (request, response) => {
     request.body.isRare = request.body.isRare ? true : false;
     const creatureAddFunction = await Creature.create(request.body).catch((error => errorCatcher(error, response)))
 
-    // Below here I need to run ONLY if it DOESN'T have errors
-    response.redirect("/creatures")
+    if (!renderWasUsed) {
+        response.redirect("/creatures")
+    } else {
+        renderWasUsed = false;
+    }
+
 })
 
 // Edit route for Creatures ~~~ /items/:id/edit ~~~ (GET)
 CreatureRouter.get("/:id/edit", async (request, response) => {
     const creature = await Creature.findById(request.params.id).catch((error => errorCatcher(error, response)))
-    response.render("creatures/edit.ejs", {creature: creature, id: request.params.id})
+
+    if (!renderWasUsed) {
+        response.render("creatures/edit.ejs", {creature: creature, id: request.params.id})
+    } else {
+        renderWasUsed = false;
+    }
 })
 
 // Show route for Creatures ~~~ /items/:id ~~~ (GET)
 CreatureRouter.get("/:id", async (request, response) => {
     const creature = await Creature.findById(request.params.id).catch((error => errorCatcher(error, response)))
-    response.render("creatures/show.ejs", {creature: creature, id: request.params.id})
+    if (!renderWasUsed) {
+        response.render("creatures/show.ejs", {creature: creature, id: request.params.id})
+    } else {
+        renderWasUsed = false;
+    }
 })
 
 module.exports = CreatureRouter

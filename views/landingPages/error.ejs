@@ -1,7 +1,26 @@
 <%- include("../partials/head.ejs")  %>
-<div class="text-center">
-    <h1>ERROR</h1>
-    <%console.log(error)%>
-    <p><%= error.message %></p>
-    <button class="btn mt-3 blackBackground" onclick="window.location.href='/creatures'"><h1>BACK TO HOME</h1></button>
+<% const errorArray = error.message.slice(error._message.length + 2).split("., ")  %>
+
+<div class="container text-center ">
+    <div class="errorDiv blackBackground py-5">
+        <div class="row">
+            <h1>Error: <%= error._message.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); }); %></h1>
+        </div>
+    
+        <div class="row errorList">
+            <ul>
+                <% errorArray.forEach(errorMessage => { %>
+                    <li><p><%=errorMessage%></p></li>
+                <% }) %>
+            </ul>
+        </div>
+            
+        <div class="row">
+            <div class="col-lg"></div>
+            <div class="col-lg">
+                <button class="btn ravenclaw" onclick="window.location.href='/creatures'"><h1 class="ravenclaw">BACK TO HOME</h1></button>
+            </div>
+            <div class="col-lg"></div>
+        </div>
+    </div>
 </div>
