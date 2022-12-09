@@ -103,7 +103,7 @@ input[type=checkbox] {
   left: 0;
   background-color: rgba(0, 0, 0, 0.808);
   height: 100vw;
-  /* display: none; */
+  display: none;
 }
 
 .message {
