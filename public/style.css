@@ -103,19 +103,25 @@ input[type=checkbox] {
   left: 0;
   background-color: rgba(0, 0, 0, 0.808);
   height: 100vw;
+  /* display: none; */
 }
 
 .message {
   position: fixed;
   top: 40vh;
   left: 30vw;
-
 }
 
 
 @media only screen and (max-width: 600px){
   p {
       font-size: 1rem;    
+  }
+
+  .message {
+    position: fixed;
+    top: 30vh;
+    left: 0;
   }
 	
   .landingTitle {
@@ -134,6 +140,10 @@ input[type=checkbox] {
     width: 15rem; 
     height: 15rem;
     object-fit: cover;
+  }
+
+  .modalViewer {
+    height: 300vw;
   }
 
   .verticallyAlign {
