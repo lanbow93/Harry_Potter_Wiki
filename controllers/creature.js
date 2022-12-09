@@ -1,6 +1,8 @@
 const CreatureRouter = require("express").Router()
 const Creature = require("../models/creature");
 
+
+
 // Ways to deal with errors
 function errorCatcher(error, response) {
     

@@ -1,5 +1,17 @@
 <%- include("../partials/head.ejs")  %>
 
+<div class="modalViewer">
+    <div class="message text-center">
+        <h2>Confirm You Want To Delete The Page For:</h2>
+        <br>
+        <h1><%= creature.creatureName %></h1>
+        <form action="/creatures/<%= creature._id %>?_method=DELETE" method="post" class=" row d-flex justify-content-around">
+            <button class="gryffindor" type="submit">Yes</button>
+            <button class="closeModal hufflepuff" type="button">No</button>
+        </form>
+    </div>
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col"><h1 class="text-center"><%= creature.creatureName %></h1></div>
@@ -27,7 +39,6 @@
     </div>
 
     
-    <form action="/creatures/<%= creature._id %>?_method=DELETE" method="post" class=" row d-flex justify-content-around">
          <div class="col-lg-3 mt-3">
             <button class="btn ravenclaw" type="button" onclick="window.location.href='/creatures/<%=id%>/edit'">Edit Page</button>
         </div>
@@ -35,11 +46,12 @@
                 <button class="btn hufflepuff" type="button" onclick="window.location.href='/creatures'">Back To Creature List</button>
             </div>
             <div class="col-lg-3 mt-3">
-                <button class="btn gryffindor fw-bold "><input type="submit" value="Delete Entry" class=" gryffindor"></button>
+                <button class="btn gryffindor confirmPopup fw-bold ">Delete Creature Entry</button>
             </div>        
-    </form>
-</div>
-
-<div class="modal">
 
 </div>
+
+
+
+
+
