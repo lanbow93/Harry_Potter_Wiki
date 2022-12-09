@@ -25,19 +25,21 @@
         <div class="col border blackBackground"><p>Description:<br><%= creature.description %></p></div>
         <div class="col-1"></div>
     </div>
-    <div class="row mt-3 text-center">
+
     
-        <div class="col">
-            <button class="btn btn-info creatureEdit" onclick="window.location.href='/creatures/<%=id%>/edit'">Edit Page</button>
-            <button class="btn btn-warning creatureEdit" onclick="window.location.href='/creatures'">Back To Creature List</button>
+    <form action="/creatures/<%= creature._id %>?_method=DELETE" method="post" class=" row d-flex justify-content-around">
+         <div class="col-lg-3 mt-3">
+            <button class="btn ravenclaw" type="button" onclick="window.location.href='/creatures/<%=id%>/edit'">Edit Page</button>
         </div>
-    
-    </div>
-    <div class="row mt-4">
-        <div class="col text-center">
-            <form action="/creatures/<%= creature._id %>?_method=DELETE" method="post" class="btn-group w-50">
-                <button class="btn btn-danger creatureEdit"><input type="submit" value="Delete Entry" class="btn bg-danger"></button>
-            </form>
-        </div>
-    </div>
+            <div class="col-lg-3 mt-3">
+                <button class="btn hufflepuff" type="button" onclick="window.location.href='/creatures'">Back To Creature List</button>
+            </div>
+            <div class="col-lg-3 mt-3">
+                <button class="btn gryffindor fw-bold "><input type="submit" value="Delete Entry" class=" gryffindor"></button>
+            </div>        
+    </form>
+</div>
+
+<div class="modal">
+
 </div>
