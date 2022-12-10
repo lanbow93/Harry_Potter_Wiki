@@ -10,33 +10,33 @@
 <div class="row">
     <div class="col-1 justify-center"></div>
     <div class="col">
-        <form action="/locations/<%=id%>?_method=PUT" method="post">
+        <form action="/locations/<%=id%>?_method=PUT&region=<%=chosenContinent%>" method="post">
             <div class="row">
                 <div class="col text-end"><p>Location Name:</p></div>
-                <div class="col"><input type="text" name="locationName" placeholder="Location Name" value="<%= location.location %>" class="fullWidth"></div>
+                <div class="col"><input type="text" name="locationName" placeholder="Location Name" value="<%= location.locationName %>" class="fullWidth"></div>
             </div>
             <div class="row">
                 <div class="col text-end"><p>Continent</p></div>
-                <div class="col"><select name="continent" id="">
+                <div class="col"><select name="continent" >
                     <option value="Africa">Africa</option>
                     <option value="Asia">Asia</option>
                     <option value="Australia">Australia</option>
                     <option value="NorthAmerica">North America</option>
-                    <option value="SorthAmerica">Sorth America</option>
+                    <option value="SouthAmerica">South America</option>
                     <option value="Europe">Europe</option>
                   </select></div>
             </div>
             <div class="row">
                 <div class="col text-end"><p>Location:</p></div>
-                <div class="col"><input type="text" name="locationLocation" placeholder="Location of Species" value="<%= location.locationLocation %>" class="fullWidth"></div>
+                <div class="col"><input type="text" name="location" placeholder="" value="<%= location.location %>" class="fullWidth"></div>
+            </div>
+            <div class="row">
+                <div class="col text-end"><p>Category:</p></div>
+                <div class="col"><input type="text" name="category" placeholder="" value="<%= location.category %>" class="fullWidth"></div>
             </div>
             <div class="row">
                 <div class="col text-end"><p>Image URL:</p></div>
                 <div class="col"><input type="text" name="imageURL" placeholder="Image URL" value="<%= location.imageURL %>" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Check Box If Rare:</p></div>
-                <div class="col" class="fullWidth"><input type="checkbox" name="isRare" <%= location.isRare ? "checked" : ""  %>></div>
             </div>
             <div class="row">
                 <div class="col text-center"><p>Description:</p></div>
@@ -53,7 +53,7 @@
             </div>
         </form>
         <div class="col text-center mt-3 ">
-            <button class="btn bg-danger text-white fw-bold largeImageDisplay" onclick="window.location.href='/locations'">Cancel</button>
+            <button class="btn bg-danger text-white fw-bold largeImageDisplay" onclick="window.location.href='/locations?region=<%= chosenContinent %>'">Cancel</button>
         </div>
     </div>
     <div class="col-1"></div>
