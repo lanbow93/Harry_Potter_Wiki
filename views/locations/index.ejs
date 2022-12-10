@@ -18,7 +18,7 @@
         <%for (let i=0; i<locations.length; i++) { %>
         <div class="col-lg-3 text-center px-0">
             <h2 class="text-white mt-3"><%= locations[i].locationName %></h2>
-            <a href="/locations/<%= locations[i]._id%>" >
+            <a href="/locations/<%= locations[i]._id%>?region=<%= chosenContinent %>" >
                 <img src="<%= locations[i].imageURL %>" alt="Image of a <%= locations[i].locationName %>" class="indexImage border border-4 rounded-circle">
             </a>
         </div>

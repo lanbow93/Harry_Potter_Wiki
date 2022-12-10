@@ -4,10 +4,9 @@ let renderWasUsed = false;
 
 
 // Ways to deal with errors
-function errorCatcher(error, response, request) {
+function errorCatcher(error, response) {
     renderWasUsed = true;
-    
-    response.render("landingPages/error.ejs", {error: error, originURL: request})
+    response.render("landingPages/error.ejs", {error: error,})
 }
 
 
@@ -143,8 +142,9 @@ LocationRouter.get("/:id/edit", async (request, response) => {
 // Show route for Locations ~~~ /items/:id ~~~ (GET)
 LocationRouter.get("/:id", async (request, response) => {
     const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response, request)))
+    const chosenContinent = request.query.region
     if (!renderWasUsed) {
-        response.render("locations/show.ejs", {location: location, id: request.params.id})
+        response.render("locations/show.ejs", {location: location, id: request.params.id, chosenContinent: chosenContinent})
     } else {
         renderWasUsed = false;
     }
