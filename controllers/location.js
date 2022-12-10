@@ -4,16 +4,17 @@ let renderWasUsed = false;
 
 
 // Ways to deal with errors
-function errorCatcher(error, response) {
+function errorCatcher(error, response, request) {
     renderWasUsed = true;
-    response.render("landingPages/error.ejs", {error})
+    
+    response.render("landingPages/error.ejs", {error: error, originURL: request})
 }
 
 
 
 // SEED Route
 LocationRouter.get("/seed", async (request, response) => {
-    await Location.remove({}).catch((error => errorCatcher(error, response)))
+    await Location.remove({}).catch((error => errorCatcher(error, response, request)))
     const locations = await Location.create([
         {
             locationName: "Uagadou",
@@ -79,8 +80,8 @@ LocationRouter.get("/seed", async (request, response) => {
 // Index route for Locations: ~~~ /items ~~~ (GET)
 LocationRouter.get("/", async (request, response) => {
     const chosenContinent = request.query.region
-
-    const locations = await Location.find({continent: chosenContinent}).catch((error => errorCatcher(error, response)))
+ 
+    const locations = await Location.find({continent: chosenContinent}).catch((error => errorCatcher(error, response, request)))
 
     if (!renderWasUsed) {
         response.render("locations/index.ejs", {locations: locations, chosenContinent: chosenContinent})
@@ -96,7 +97,7 @@ LocationRouter.get("/new", (request, response) => {
 
 // Destroy route for Locations ~~~ /items/:id ~~~ (DELETE)
 LocationRouter.delete("/:id", async (request, response) => {
-    await Location.findByIdAndRemove(request.params.id).catch((error => errorCatcher(error, response)))
+    await Location.findByIdAndRemove(request.params.id).catch((error => errorCatcher(error, response, request)))
     if (!renderWasUsed) {
         response.redirect("/locations")
     } else {
@@ -107,7 +108,7 @@ LocationRouter.delete("/:id", async (request, response) => {
 // Update route for Locations ~~~ /items/:id ~~~ (PUT)
 LocationRouter.put("/:id", async (request, response) => {
     request.body.isRare = request.body.isRare ? true : false;
-    await Location.findByIdAndUpdate(request.params.id, request.body).catch((error => errorCatcher(error, response)))
+    await Location.findByIdAndUpdate(request.params.id, request.body).catch((error => errorCatcher(error, response, request)))
     if (!renderWasUsed) {
         response.redirect("/locations")
     } else {
@@ -118,7 +119,7 @@ LocationRouter.put("/:id", async (request, response) => {
 // Create route for Locations ~~~ /items ~~~ (POST)
 LocationRouter.post("/", async (request, response) => {
     request.body.isRare = request.body.isRare ? true : false;
-    const locationAddFunction = await Location.create(request.body).catch((error => errorCatcher(error, response)))
+    const locationAddFunction = await Location.create(request.body).catch((error => errorCatcher(error, response, request)))
 
     if (!renderWasUsed) {
         response.redirect("/locations")
@@ -130,7 +131,7 @@ LocationRouter.post("/", async (request, response) => {
 
 // Edit route for Locations ~~~ /items/:id/edit ~~~ (GET)
 LocationRouter.get("/:id/edit", async (request, response) => {
-    const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response)))
+    const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response, request)))
 
     if (!renderWasUsed) {
         response.render("locations/edit.ejs", {location: location, id: request.params.id})
@@ -141,7 +142,7 @@ LocationRouter.get("/:id/edit", async (request, response) => {
 
 // Show route for Locations ~~~ /items/:id ~~~ (GET)
 LocationRouter.get("/:id", async (request, response) => {
-    const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response)))
+    const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response, request)))
     if (!renderWasUsed) {
         response.render("locations/show.ejs", {location: location, id: request.params.id})
     } else {
