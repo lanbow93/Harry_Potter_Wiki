@@ -1,5 +1,7 @@
 <%- include("../partials/head.ejs")  %>
-
+<div class="row text-center">
+    <p>(NAVMENU)</p>
+</div>
 <div class="modalViewer">
     <div class="message text-center">
         <h2>Confirm You Want To Delete The Page For:</h2>
@@ -40,14 +42,14 @@
 
     
     <div class="row justify-content-evenly">
-        <div class="col-lg-3 mt-3">
-            <button class="btn ravenclaw fw-bold" type="button" onclick="window.location.href='/creatures/<%=id%>/edit'">Edit Page<button>
+        <div class="col-lg-3 mt-3 ">
+            <button class="btn ravenclaw fw-bold p-3" type="button" onclick="window.location.href='/creatures/<%=id%>/edit'">Edit Page<button>
         </div>
         <div class="col-lg-3 mt-3">
-        <button class="btn hufflepuff fw-bold" type="button" onclick="window.location.href='/creatures'">Back To Creature List<button>
+        <button class="btn hufflepuff fw-bold p-3" type="button" onclick="window.location.href='/creatures'">Back To Creature List<button>
         </div>
         <div class="col-lg-3 mt-3">
-            <button class="btn gryffindor confirmPopup fw-bold ">Delete Creature Entry</button> 
+            <button class="btn gryffindor confirmPopup fw-bold p-3">Delete Creature Entry</button> 
         </div>     
     </div>  
 
