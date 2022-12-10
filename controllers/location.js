@@ -9,8 +9,6 @@ function errorCatcher(error, response) {
     response.render("landingPages/error.ejs", {error: error,})
 }
 
-
-
 // SEED Route
 LocationRouter.get("/seed", async (request, response) => {
     await Location.remove({}).catch((error => errorCatcher(error, response, request)))
@@ -81,6 +79,8 @@ LocationRouter.get("/", async (request, response) => {
     const chosenContinent = request.query.region
  
     const locations = await Location.find({continent: chosenContinent}).catch((error => errorCatcher(error, response)))
+
+
 
     if (!renderWasUsed) {
         response.render("locations/index.ejs", {locations: locations, chosenContinent: chosenContinent})

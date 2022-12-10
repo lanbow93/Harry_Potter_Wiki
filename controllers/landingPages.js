@@ -15,7 +15,7 @@ LandingRouter.get("/", (request, response) => {
 
 //  .com/submenu
 LandingRouter.get("/submenu", (request, response) => {
-    response.render("landingPages/submenu.ejs")
+    response.render("landingPages/submenu.ejs", {currentQuery: request.query})
 }) 
 
 
