@@ -5,6 +5,7 @@ const express = require("express");
 const methodOverride = require("method-override")
 const CreatureRouter = require("./controllers/creature");
 const LocationRouter = require("./controllers/location");
+const LandingRouter = require("./controllers/landingPages");
 
 // Creating application object
 const app = express();
@@ -16,6 +17,8 @@ app.use(express.urlencoded({extended: true}));
 app.use("/static", express.static("public"))
 app.use("/creatures", CreatureRouter)
 app.use("/locations", LocationRouter)
+app.use("/landings", LandingRouter)
+
 
 // Routes
 
@@ -24,10 +27,7 @@ app.get("/", (request, response) => {
     response.render("landingPages/home.ejs")
 })
 
-// Index page to decide which specific locations will be shown
-app.get("/locationsIndex", (request, response) => {
-    response.render("locations/locationLanding.ejs")
-})
+
 
 // App listener
 const PORT = process.env.PORT || 3333
