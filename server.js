@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const express = require("express");
 const methodOverride = require("method-override")
 const CreatureRouter = require("./controllers/creature");
+const LocationRouter = require("./controllers/location");
 
 // Creating application object
 const app = express();
@@ -14,11 +15,18 @@ app.use(morgan("tiny"));
 app.use(express.urlencoded({extended: true}));
 app.use("/static", express.static("public"))
 app.use("/creatures", CreatureRouter)
+app.use("/locations", LocationRouter)
 
 // Routes
 
+// Initial Landing Page
 app.get("/", (request, response) => {
     response.render("landingPages/home.ejs")
+})
+
+// Index page to decide which specific locations will be shown
+app.get("/locationsIndex", (request, response) => {
+    response.render("locations/locationLanding.ejs")
 })
 
 // App listener
