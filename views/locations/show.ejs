@@ -7,7 +7,7 @@
         <h2>Confirm You Want To Delete The Page For:</h2>
         <br>
         <h1><%= location.locationName %></h1>
-        <form action="/locations/<%= location._id %>?_method=DELETE" method="post" class=" row d-flex justify-content-around mt-3">
+        <form action="/locations/<%= location._id %>?_method=DELETE&region=<%= chosenContinent %>" method="post" class=" row d-flex justify-content-around mt-3">
             <div class="col"><button class="gryffindor display-5" type="submit">Yes</button></div>
             <div class="col"><button class="closeModal hufflepuff display-5" type="button">No</button></div>
         </form>

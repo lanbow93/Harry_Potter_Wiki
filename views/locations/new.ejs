@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-1 justify-center"></div>
     <div class="col">
-        <form action="/locations/" method="post">
+        <form action="/locations/?region=<%=chosenContinent%>" method="post">
             <div class="row">
                 <div class="col text-end"><p>Name of Location:</p></div>
                 <div class="col"><input type="text" name="locationName" placeholder="Hogwarts, Ministry, Etc" class="fullWidth"></div>

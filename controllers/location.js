@@ -41,7 +41,7 @@ LocationRouter.get("/seed", async (request, response) => {
         },
         {
             locationName: "Magical Congress of the United States of America (MACUSA)",
-            continent: "North America",
+            continent: "NorthAmerica",
             location: "Woolworth Building, New York, NY[",
             imageURL: "https://pm1.narvii.com/7022/af652f51b82fae43b4d34812f758debc0bdfae81r4-750-375_00.jpg",
             category: "Government Building",
@@ -49,7 +49,7 @@ LocationRouter.get("/seed", async (request, response) => {
         },
         {
             locationName: "Castelobruxo",
-            continent: "South America",
+            continent: "SouthAmerica",
             location: "Amazon Rainforest, Brazil, South America",
             imageURL: "https://static.wikia.nocookie.net/harrypotter/images/8/85/CastelobruxoSchoolofMagic.png/revision/latest/scale-to-width-down/350?cb=20161210203310",
             category: "School",
@@ -80,7 +80,7 @@ LocationRouter.get("/seed", async (request, response) => {
 LocationRouter.get("/", async (request, response) => {
     const chosenContinent = request.query.region
  
-    const locations = await Location.find({continent: chosenContinent}).catch((error => errorCatcher(error, response, request)))
+    const locations = await Location.find({continent: chosenContinent}).catch((error => errorCatcher(error, response)))
 
     if (!renderWasUsed) {
         response.render("locations/index.ejs", {locations: locations, chosenContinent: chosenContinent})
@@ -96,9 +96,9 @@ LocationRouter.get("/new", (request, response) => {
 
 // Destroy route for Locations ~~~ /items/:id ~~~ (DELETE)
 LocationRouter.delete("/:id", async (request, response) => {
-    await Location.findByIdAndRemove(request.params.id).catch((error => errorCatcher(error, response, request)))
+    await Location.findByIdAndRemove(request.params.id).catch((error => errorCatcher(error, response)))
     if (!renderWasUsed) {
-        response.redirect("/locations")
+        response.redirect(`/locations?region=${request.query.region}`)
     } else {
         renderWasUsed = false;
     }
@@ -107,7 +107,7 @@ LocationRouter.delete("/:id", async (request, response) => {
 // Update route for Locations ~~~ /items/:id ~~~ (PUT)
 LocationRouter.put("/:id", async (request, response) => {
     request.body.isRare = request.body.isRare ? true : false;
-    await Location.findByIdAndUpdate(request.params.id, request.body).catch((error => errorCatcher(error, response, request)))
+    await Location.findByIdAndUpdate(request.params.id, request.body).catch((error => errorCatcher(error, response)))
     if (!renderWasUsed) {
         response.redirect("/locations")
     } else {
@@ -117,11 +117,11 @@ LocationRouter.put("/:id", async (request, response) => {
 
 // Create route for Locations ~~~ /items ~~~ (POST)
 LocationRouter.post("/", async (request, response) => {
-    request.body.isRare = request.body.isRare ? true : false;
-    const locationAddFunction = await Location.create(request.body).catch((error => errorCatcher(error, response, request)))
-
+    const locationAddFunction = await Location.create(request.body).catch((error => errorCatcher(error, response)))
+    const chosenContinent = request.query.region
+ 
     if (!renderWasUsed) {
-        response.redirect("/locations")
+        response.redirect(`/locations?region=${chosenContinent}`)
     } else {
         renderWasUsed = false;
     }
@@ -130,7 +130,7 @@ LocationRouter.post("/", async (request, response) => {
 
 // Edit route for Locations ~~~ /items/:id/edit ~~~ (GET)
 LocationRouter.get("/:id/edit", async (request, response) => {
-    const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response, request)))
+    const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response)))
 
     if (!renderWasUsed) {
         response.render("locations/edit.ejs", {location: location, id: request.params.id})
@@ -141,7 +141,7 @@ LocationRouter.get("/:id/edit", async (request, response) => {
 
 // Show route for Locations ~~~ /items/:id ~~~ (GET)
 LocationRouter.get("/:id", async (request, response) => {
-    const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response, request)))
+    const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response)))
     const chosenContinent = request.query.region
     if (!renderWasUsed) {
         response.render("locations/show.ejs", {location: location, id: request.params.id, chosenContinent: chosenContinent})
