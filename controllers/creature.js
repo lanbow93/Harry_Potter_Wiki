@@ -2,7 +2,6 @@ const CreatureRouter = require("express").Router()
 const Creature = require("../models/creature");
 let renderWasUsed = false;
 
-
 // Ways to deal with errors
 function errorCatcher(error, response) {
     renderWasUsed = true;
@@ -13,7 +12,6 @@ function errorCatcher(error, response) {
 CreatureRouter.get("/", async (request, response) => {
     const chosenContinent = request.query.region
     const creatures = await Creature.find({continent: request.query.region}).catch((error => errorCatcher(error, response)))
-
     if (!renderWasUsed) {
         response.render("creatures/index.ejs", {creatures: creatures, chosenContinent: chosenContinent})
     } else {
@@ -51,7 +49,6 @@ CreatureRouter.put("/:id", async (request, response) => {
 CreatureRouter.post("/", async (request, response) => {
     request.body.isRare = request.body.isRare ? true : false;
     const creatureAddFunction = await Creature.create(request.body).catch((error => errorCatcher(error, response)))
-
     if (!renderWasUsed) {
         response.redirect(`/creatures?region=${request.body.continent}`)
     } else {

@@ -2,7 +2,6 @@ const LocationRouter = require("express").Router()
 const Location = require("../models/location");
 let renderWasUsed = false;
 
-
 // Ways to deal with errors
 function errorCatcher(error, response) {
     renderWasUsed = true;
@@ -115,19 +114,16 @@ LocationRouter.put("/:id", async (request, response) => {
 LocationRouter.post("/", async (request, response) => {
     const locationAddFunction = await Location.create(request.body).catch((error => errorCatcher(error, response)))
     const chosenContinent = request.query.region
- 
     if (!renderWasUsed) {
         response.redirect(`/locations?region=${chosenContinent}`)
     } else {
         renderWasUsed = false;
     }
-
 })
 
 // Edit route for Locations ~~~ /items/:id/edit ~~~ (GET)
 LocationRouter.get("/:id/edit", async (request, response) => {
     const location = await Location.findById(request.params.id).catch((error => errorCatcher(error, response)))
-
     if (!renderWasUsed) {
         response.render("locations/edit.ejs", {location: location, id: request.params.id, chosenContinent: request.query.region})
     } else {

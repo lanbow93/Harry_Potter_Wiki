@@ -18,6 +18,4 @@ LandingRouter.get("/submenu", (request, response) => {
     response.render("landingPages/submenu.ejs", {currentQuery: request.query})
 }) 
 
-
-
 module.exports = LandingRouter;
