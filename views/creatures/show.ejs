@@ -7,7 +7,7 @@
         <h2>Confirm You Want To Delete The Page For:</h2>
         <br>
         <h1><%= creature.creatureName %></h1>
-        <form action="/creatures/<%= creature._id %>?_method=DELETE" method="post" class=" row d-flex justify-content-around mt-3">
+        <form action="/creatures/<%= creature._id %>?_method=DELETE&region=<%= chosenContinent %>" method="post" class=" row d-flex justify-content-around mt-3">
             <div class="col"><button class="gryffindor display-5" type="submit">Yes</button></div>
             <div class="col"><button class="closeModal hufflepuff display-5" type="button">No</button></div>
         </form>
@@ -43,10 +43,10 @@
     
     <div class="row justify-content-evenly">
         <div class="col-lg-3 mt-3 ">
-            <button class="btn ravenclaw fw-bold p-3" type="button" onclick="window.location.href='/creatures/<%=id%>/edit'">Edit Page<button>
+            <button class="btn ravenclaw fw-bold p-3" type="button" onclick="window.location.href='/creatures/<%=id%>/edit?region=<%= chosenContinent %>'">Edit Page<button>
         </div>
         <div class="col-lg-3 mt-3">
-        <button class="btn hufflepuff fw-bold p-3" type="button" onclick="window.location.href='/creatures'">Back To Creature List<button>
+        <button class="btn hufflepuff fw-bold p-3" type="button" onclick="window.location.href='/creatures?region=<%= chosenContinent %>'">Back To Creature List<button>
         </div>
         <div class="col-lg-3 mt-3">
             <button class="btn gryffindor confirmPopup fw-bold p-3">Delete Creature Entry</button> 

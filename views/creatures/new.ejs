@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-1 justify-center"></div>
     <div class="col">
-        <form action="/creatures/" method="post">
+        <form action="/creatures?region=<%chosenContinent%>" method="post">
             <div class="row">
                 <div class="col text-end"><p>Species Name:</p></div>
                 <div class="col"><input type="text" name="creatureName" placeholder="Species Name" class="fullWidth"></div>
@@ -22,6 +22,11 @@
             <div class="row">
                 <div class="col text-end"><p>Location:</p></div>
                 <div class="col"><input type="text" name="creatureLocation" placeholder="Location of Species" class="fullWidth"></div>
+            </div>
+            <div class="row">
+                <div class="col text-end"><p>Continent:</p></div>
+                <div class="col" class=""><p><%= chosenContinent %></p></div>
+                <input type="hidden" name="continent" value="<%= chosenContinent %>">
             </div>
             <div class="row">
                 <div class="col text-end"><p>Image URL:</p></div>
@@ -44,7 +49,7 @@
                     <input type="submit" value="Log New Creature" class="btn slytherin fw-bold largeImageDisplay p-3">
                 </div>
                 <div class="col text-center">
-                    <button class="btn gryffindor fw-bold largeImageDisplay p-3" type="button" onclick="window.location.href='/creatures'">Cancel</button>
+                    <button class="btn gryffindor fw-bold largeImageDisplay p-3" type="button" onclick="window.location.href='/creatures?region=<%= chosenContinent %>'">Cancel</button>
                 </div>
             </div>
             

@@ -11,10 +11,11 @@ function errorCatcher(error, response) {
 
 // Index route for Creatures: ~~~ /items ~~~ (GET)
 CreatureRouter.get("/", async (request, response) => {
-    const creatures = await Creature.find({}).catch((error => errorCatcher(error, response)))
+    const chosenContinent = request.query.region
+    const creatures = await Creature.find({continent: request.query.region}).catch((error => errorCatcher(error, response)))
 
     if (!renderWasUsed) {
-        response.render("creatures/index.ejs", {creatures})
+        response.render("creatures/index.ejs", {creatures: creatures, chosenContinent: chosenContinent})
     } else {
         renderWasUsed = false;
     }
@@ -22,14 +23,14 @@ CreatureRouter.get("/", async (request, response) => {
 
 // New route for Creatures: ~~~ /items/new ~~~ (GET)
 CreatureRouter.get("/new", (request, response) => {
-    response.render("creatures/new.ejs")
+    response.render("creatures/new.ejs",{chosenContinent: request.query.region})
 })
 
 // Destroy route for Creatures ~~~ /items/:id ~~~ (DELETE)
 CreatureRouter.delete("/:id", async (request, response) => {
     await Creature.findByIdAndRemove(request.params.id).catch((error => errorCatcher(error, response)))
     if (!renderWasUsed) {
-        response.redirect("/creatures")
+        response.redirect(`/creatures?region=${request.query.region}`)
     } else {
         renderWasUsed = false;
     }
@@ -40,7 +41,7 @@ CreatureRouter.put("/:id", async (request, response) => {
     request.body.isRare = request.body.isRare ? true : false;
     await Creature.findByIdAndUpdate(request.params.id, request.body).catch((error => errorCatcher(error, response)))
     if (!renderWasUsed) {
-        response.redirect("/creatures")
+        response.redirect(`/creatures?region=${request.query.region}`)
     } else {
         renderWasUsed = false;
     }
@@ -52,7 +53,7 @@ CreatureRouter.post("/", async (request, response) => {
     const creatureAddFunction = await Creature.create(request.body).catch((error => errorCatcher(error, response)))
 
     if (!renderWasUsed) {
-        response.redirect("/creatures")
+        response.redirect(`/creatures?region=${request.body.continent}`)
     } else {
         renderWasUsed = false;
     }
@@ -64,7 +65,7 @@ CreatureRouter.get("/:id/edit", async (request, response) => {
     const creature = await Creature.findById(request.params.id).catch((error => errorCatcher(error, response)))
 
     if (!renderWasUsed) {
-        response.render("creatures/edit.ejs", {creature: creature, id: request.params.id})
+        response.render("creatures/edit.ejs", {creature: creature, id: request.params.id, chosenContinent: request.query.region})
     } else {
         renderWasUsed = false;
     }
@@ -74,7 +75,7 @@ CreatureRouter.get("/:id/edit", async (request, response) => {
 CreatureRouter.get("/:id", async (request, response) => {
     const creature = await Creature.findById(request.params.id).catch((error => errorCatcher(error, response)))
     if (!renderWasUsed) {
-        response.render("creatures/show.ejs", {creature: creature, id: request.params.id})
+        response.render("creatures/show.ejs", {creature: creature, id: request.params.id, chosenContinent: request.query.region})
     } else {
         renderWasUsed = false;
     }
