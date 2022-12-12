@@ -20,9 +20,11 @@ a, a:hover, a:focus, a:active {
   color: inherit;
 }
 
+
+
 p {
   color: white;
-  font-size: 1.6rem
+  font-size: 1.6rem;
 }
 
 input[type=checkbox] {
@@ -71,8 +73,44 @@ input[type=checkbox] {
   box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
 }
 .fullWidth {
-    width: 80%;
+    width: 100%;
 }
+
+/* ~~~~~~~~~~ START OF Form Page CSS ~~~~~~~~~~ */
+
+.formHalfTextbox {
+  width: 60%;
+  font-size: 1.6rem
+}
+.formFullTextbox {
+  width: 100%;
+  font-size: 1.6rem
+}
+.formButton {
+  width: 100%;
+  font-size: 1.6rem
+}
+
+.formLabelText {
+  color: white;
+  font-size: 1.6rem
+}
+
+.formBlackBackdrop {
+  background-color: #00000054;
+  padding: 1%;
+}
+
+.formSpan {
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+
+/* ~~~~~~~~~~ END OF Form Page CSS ~~~~~~~~~~ */
+
+
 .centerImage {
     display: flex;
     align-items: center;
@@ -113,11 +151,33 @@ input[type=checkbox] {
   left: 30vw;
 }
 
+/* ~~~~~~~~~~ Media Queries for Mobile ~~~~~~~~~~ */
 
 @media only screen and (max-width: 600px){
+
+/* ~~~~~~~~~~ START OF Form Page CSS ~~~~~~~~~~ */
+
+.formHalfTextbox {
+  font-size: 1rem
+}
+.formFullTextbox {
+  font-size: 1rem
+}
+.formButton {
+  font-size: 1rem
+}
+.formLabelText {
+  font-size: 1rem
+}
+.formSpan {
+  font-size: .8rem;
+}
+
+/* ~~~~~~~~~~ END OF Form Page CSS ~~~~~~~~~~ */
   p {
-      font-size: 1rem;    
+    font-size: 1rem;    
   }
+
 
   .fullWidth{
     width: 100%;

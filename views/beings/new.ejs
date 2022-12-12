@@ -1,0 +1,54 @@
+<%- include("../partials/head.ejs")  %>
+<div class="row">
+    <div class="col text-center">
+        <h1>Log New Being</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-1 justify-center"></div>
+    <div class="col">
+        <form action='/beings/?region=<%= chosenContinent %></form> method="post"' >
+            <div class="row">
+                <div class="col text-end"><p>First Name:</p></div>
+                <div class="col"><input type="text" name="firstName" placeholder="First Name" class="fullWidth"></div>
+                <div class="col text-end"><p>Last Name:</p></div>
+                <div class="col"><input type="text" name="lastName" placeholder="Last Name" class="fullWidth"></div>
+            </div>
+            <div class="row">
+                <div class="col text-end"><p>Continent:</p></div>
+                <div class="col" class=""><p><%= chosenContinent %></p></div>
+                <input type="hidden" name="continent" value="<%= chosenContinent %>">
+            </div>
+            <div class="col text-end"><p>Mother's Name:</p></div>
+            <div class="col"><input type="text" name="motherName" placeholder="Mother's Name" class="fullWidth"></div>
+            <div class="col text-end"><p>Father's Name:</p></div>
+            <div class="col"><input type="text" name="motherName" placeholder="Father's Name" class="fullWidth"></div>
+            <div class="row">
+                <div class="col text-end"><p>Birth Place:</p></div>
+                <div class="col"><input type="text" name="birthPlace" placeholder="Egypt, England, Etc" class="fullWidth"></div>
+            </div>
+            <div class="row">
+                <div class="col text-end"><p>Image URL:</p></div>
+                <div class="col"><input type="text" name="imageURL" placeholder="www.imageURL.com" class="fullWidth"></div>
+            </div>
+            <div class="col text-end"><p>Affiliations:</p><br><p>Format: "Student, Business Name, Ravenclaw"</p></div>
+            <div class="col"><input type="text" name="affiliation" placeholder="First Name" class="fullWidth"></div>
+            <div class="row">
+                <div class="col text-center">
+                    <textarea id="txtid" name="description" rows="4" cols="50" class="fullWidth">
+                </textarea></div>
+            </div>
+            <div class="row mt-3">
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <input type="submit" value="Log New Location" class="btn slytherin fw-bold largeImageDisplay p-3">
+                    </div>
+                    <div class="col text-center">
+                        <button class="btn gryffindor fw-bold largeImageDisplay p-3" type="button" onclick="window.location.href='/locations?region=<%= chosenContinent %>'">Cancel</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+    <div class="col-1"></div>
+</div>

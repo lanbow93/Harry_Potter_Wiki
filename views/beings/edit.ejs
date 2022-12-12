@@ -1,0 +1,92 @@
+<%- include("../partials/head.ejs")  %>
+
+<form action="/beings/<%=id%>?_method=PUT&region=<%=chosenContinent%>" method="post" class="container formBlackBackdrop">
+    
+    <div class="row">
+        <div class="col text-center">
+            <h1>Edit <%= being.firstName + " " + being.lastName %></h1>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="firstNameInput">First Name:</label>
+            <input type="text" name="firstName" id="firstNameInput" value="<%= being.firstName %>" class="formHalfTextbox">
+        </div>
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="lastNameInput">Last Name:</label>
+            <input type="text" name="lastName" id="lastNameInput" value="<%= being.lastName %>" class="formHalfTextbox" >
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="motherNameInput">Mother's Name:</label>
+            <input type="text" name="motherName" id="motherNameInput" value="<%= being.motherName %>" class="formHalfTextbox">
+        </div>
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="fatherNameInput">Father's Name:</label>
+            <input type="text" name="motherName" id="fatherNameInput" value="<%= being.fatherName %>" class="formHalfTextbox">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="birthPlaces">Birth Place:</label>
+            <input type="text" name="birthPlace" id="birthPlaces" value="<%= being.birthPlace %>" class="formHalfTextbox">
+        </div>
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="aliases">Alias:</label>
+            <input type="text" name="alias" id="aliases" value="<%= being.alias %>" class="formHalfTextbox">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="aliases">Alias:</label>
+            <select name="continent" class="formHalfTextbox">
+                    <option value="Africa" <%= (being.continent === "Africa") ? "selected" : "" %>>Africa</option>
+                    <option value="Asia" <%= (being.continent === "Asia") ? "selected" : "" %>>Asia</option>
+                    <option value="Australia" <%= (being.continent === "Australia") ? "selected" : "" %>>Australia</option>
+                    <option value="NorthAmerica" <%= (being.continent === "NorthAmerica") ? "selected" : "" %>>North America</option>
+                    <option value="SouthAmerica" <%= (being.continent === "SouthAmerica") ? "selected" : "" %>>South America</option>
+                    <option value="Europe" <%= (being.continent === "Europe") ? "selected" : "" %>>Europe</option>
+            </select>    
+        </div>
+        <div class="col-lg-6"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6">
+            <label class="formLabelText" for="imageURLS">Image URL</label>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" name="imageURL" id="imageURLS" class="formFullTextbox mt-3" value="<%= being.imageURL %>">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="affiliations">Affiliations<br><span class="formSpan">Format: "Student, Business Name, Ravenclaw"</span></label>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" name="affiliation" id="affiliations" class="formFullTextbox mt-3" value="<%= being.affiliation %>"> 
+        </div>
+    </div> 
+    <div class="row mt-3">
+        <div class="col">
+            <label for="descriptionField" class="formLabelText">Description:</label>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col d-flex justify-content-between">
+            <textarea id="descriptionField" name="description" rows="4" cols="50" class="fullWidth">
+                <%= being.description %>
+            </textarea>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-lg-6 mt-3">
+            <button type="button" class="btn hufflepuff fw-bold" onclick="window.location.href='/beings/<%=id%>?region=<%= chosenContinent %>'" >Cancel </button>
+        </div>
+        <div class="col-lg-6 mt-3">
+            <button type="submit" class="btn ravenclaw fw-bold">Submit Changes</button>
+        </div>
+    </div>
+ 
+</form>
