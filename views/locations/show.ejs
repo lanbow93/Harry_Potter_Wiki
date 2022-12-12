@@ -4,7 +4,7 @@
     <div class="modalMessage text-center p-3">
         <h2>Confirm You Want To Delete The Page For:</h2>
         <br>
-        <h1><%= being.firstName + " " + being.lastName %></h1>
+        <h1><%= location.locationName %></h1>
         <form action="/locations/<%= location._id %>?_method=DELETE&region=<%= chosenContinent %>" method="post" class=" row d-flex justify-content-around mt-3">
             <!-- Yes Button -->
             <div class="col"><button class="btn gryffindor p-3" type="submit">Yes</button></div>

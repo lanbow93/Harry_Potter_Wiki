@@ -1,51 +1,63 @@
 <%- include("../partials/head.ejs")  %>
-<div class="row">
-    <div class="col text-center">
-        <h1>Log New Location</h1>
+<form action="/locations/?region=<%=chosenContinent%>" method="post" class="container formBlackBackdrop">
+    <div class="row">
+        <div class="col text-center">
+            <h1>New Location</h1>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-1 justify-center"></div>
-    <div class="col">
-        <form action="/locations/?region=<%=chosenContinent%>" method="post">
-            <div class="row">
-                <div class="col text-end"><p>Name of Location:</p></div>
-                <div class="col"><input type="text" name="locationName" placeholder="Hogwarts, Ministry, Etc" class="formFullTextbox"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Continent:</p></div>
-                <div class="col" class=""><p><%= chosenContinent %></p></div>
-                <input type="hidden" name="continent" value="<%= chosenContinent %>">
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Location:</p></div>
-                <div class="col"><input type="text" name="location" placeholder="City/Region" class="formFullTextbox"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Category:</p></div>
-                <div class="col"><input type="text" name="category" placeholder="School, Landmark, Etc"  class="formFullTextbox"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Image URL:</p></div>
-                <div class="col"><input type="text" name="imageURL" placeholder="Image URL" class="formFullTextbox"></div>
-            </div>
-            <div class="row">
-                <div class="col text-center"><p>Description:</p></div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <textarea id="txtid" name="description" rows="4" cols="50" class="formFullTextbox"></textarea>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col text-center">
-                    <input type="submit" value="Log New Location" class="btn slytherin fw-bold largeImageDisplay p-3">
-                </div>
-                <div class="col text-center">
-                    <button class="btn gryffindor fw-bold largeImageDisplay p-3" type="button" onclick="window.location.href='/locations?region=<%= chosenContinent%>'">Cancel</button>
-                </div>
-            </div>
-        </form>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="name" >Location Name:</label>
+            <input type="text" name="locationName" id="name" class="formHalfTextbox" placeholder="Hogwarts, Ministry, Etc">
+        </div>
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="aliases">Continent:&ensp;</label>
+            <select name="" class="formHalfTextbox" disabled>
+                <option value="Africa" <%= (chosenContinent === "Africa") ? "selected" : "" %>>Africa</option>
+                <option value="Asia" <%= (chosenContinent === "Asia") ? "selected" : "" %>>Asia</option>
+                <option value="Australia" <%= (chosenContinent === "Australia") ? "selected" : "" %>>Australia</option>
+                <option value="NorthAmerica" <%= (chosenContinent === "NorthAmerica") ? "selected" : "" %>>North America</option>
+                <option value="SouthAmerica" <%= (chosenContinent=== "SouthAmerica") ? "selected" : "" %>>South America</option>
+                <option value="Europe" <%= (chosenContinent === "Europe") ? "selected" : "" %>>Europe</option>
+            </select>
+            <input type="hidden" name="continent" value="<%= chosenContinent %>">
+        </div>
     </div>
-    <div class="col-1"></div>
-</div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="categories">Category:</label>
+            <input type="text" name="category" id="categories" class="formHalfTextbox" placeholder="School, Landmark, Etc">
+        </div>
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="locale">Location:</label>
+            <input type="text" name="location" id="locale" class="formHalfTextbox" placeholder="City/Region">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6">
+            <label class="formLabelText" for="imageURLS" ">Image URL</label>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" name="imageURL" id="imageURLS" class="formFullTextbox mt-3" placeholder="www.imageURL.com" >
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <label for="descriptionField" class="formLabelText">Description:</label>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col d-flex justify-content-between">
+            <textarea id="descriptionField" name="description" rows="4" cols="50" class="formFullTextbox"></textarea>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-lg-6 mt-3">
+            <button type="button" class="btn hufflepuff fw-bold p-3" onclick="window.location.href='/locations?region=<%= chosenContinent%>'" >Cancel </button>
+        </div>
+        <div class="col-lg-6 mt-3">
+            <button type="submit" class="btn ravenclaw fw-bold p-3">Submit New Location</button>
+        </div>
+    </div>
+</form>
