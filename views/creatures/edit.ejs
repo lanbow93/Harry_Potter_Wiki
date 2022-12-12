@@ -1,61 +1,70 @@
 <%- include("../partials/head.ejs")  %>
-<div class="row">
-    <div class="col text-center">
-        <h1 >Edit <%= creature.creatureName %></h1>
-    </div>
-</div>
-<div class="row">
-    <div class="col-1 justify-center"></div>
-    <div class="col">
-        <form action="/creatures/<%=id%>?_method=PUT&region=<%=chosenContinent%>" method="post">
-            <div class="row">
-                <div class="col text-end"><p>Species Name:</p></div>
-                <div class="col"><input type="text" name="creatureName" placeholder="Species Name" value="<%= creature.creatureName %>" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>M.O.M. Classification:</p></div>
-                <div class="col"><input type="text" name="ministryClassification" placeholder="(XXXX)" value="<%= creature.ministryClassification %>" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Continent</p></div>
-                <div class="col"><select name="continent" >
-                    <option value="Africa">Africa</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Australia">Australia</option>
-                    <option value="NorthAmerica">North America</option>
-                    <option value="SouthAmerica">South America</option>
-                    <option value="Europe">Europe</option>
-                  </select></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Location:</p></div>
-                <div class="col"><input type="text" name="creatureLocation" placeholder="Location of Species" value="<%= creature.creatureLocation %>" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Image URL:</p></div>
-                <div class="col"><input type="text" name="imageURL" placeholder="Image URL" value="<%= creature.imageURL %>" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Check Box If Rare:</p></div>
-                <div class="col" class="fullWidth"><input type="checkbox" name="isRare" <%= creature.isRare ? "checked" : ""  %>></div>
-            </div>
-            <div class="row">
-                <div class="col text-center"><p>Description:</p></div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <textarea id="txtid" name="description" rows="4" cols="50" class="fullWidth"><%= creature.description%>
-                </textarea></div>
-            </div>
-            <div class="row mt-3">
-                <div class="col text-center ">
-                    <input type="submit" value="Update Creature Information" class="btn bg-success text-white fw-bold largeImageDisplay">
-                </div>
-            </div>
-        </form>
-        <div class="col text-center mt-3 ">
-            <button class="btn bg-danger text-white fw-bold largeImageDisplay" onclick="window.location.href='/creatures?region=<%= chosenContinent %>'">Cancel</button>
+
+<form action="/creatures/<%=id%>?_method=PUT&region=<%=chosenContinent%>" method="post" class="container formBlackBackdrop">
+    <div class="row">
+        <div class="col text-center">
+            <h1>Edit <%= creature.creatureName %></h1>
         </div>
     </div>
-    <div class="col-1"></div>
-</div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="creatureNames">Species Name:</label>
+            <input type="text" name="creatureName" id="creatureNames" class="formHalfTextbox" value="<%= creature.creatureName %>">
+        </div>  
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="rating">Classification:</label>
+            <input type="text" name="ministryClassification" value="<%= creature.ministryClassification %>"  id="rating" class="formHalfTextbox">
+        </div>  
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="creatureLocations">Known Location:</label>
+            <input type="text" name="creatureLocation" value="<%= creature.creatureLocation %>" id="creatureLocations" class="formHalfTextbox">
+        </div>  
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="Continent">Continent:&ensp;</label>
+            <select name="" class="formHalfTextbox" id="Continent">
+                <option value="Africa" <%= (chosenContinent === "Africa") ? "selected" : "" %>>Africa</option>
+                <option value="Asia" <%= (chosenContinent === "Asia") ? "selected" : "" %>>Asia</option>
+                <option value="Australia" <%= (chosenContinent === "Australia") ? "selected" : "" %>>Australia</option>
+                <option value="NorthAmerica" <%= (chosenContinent === "NorthAmerica") ? "selected" : "" %>>North America</option>
+                <option value="SouthAmerica" <%= (chosenContinent=== "SouthAmerica") ? "selected" : "" %>>South America</option>
+                <option value="Europe" <%= (chosenContinent === "Europe") ? "selected" : "" %>>Europe</option>
+            </select>
+        </div>
+    </div>
+        <div class="row mt-3">
+            <div class="col-lg-6 d-flex justify-content-between">
+                <label class="formLabelText" for="rarity">Check If Rare:</label>
+                <input type="checkbox" name="isRare" id="rarity" class="formHalfTextbox" <%= creature.isRare ? "checked" : ""  %>>
+            </div> 
+            <div class="col-lg-6 d-flex justify-content-between"></div> 
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <label class="formLabelText" for="imageURLS">Image URL</label>
+            </div>
+            <div class="col-lg-6">
+                <input type="text" name="imageURL" value="<%= creature.imageURL %>" id="imageURLS" class="formFullTextbox mt-3">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="descriptionField" class="formLabelText">Description:</label>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col d-flex justify-content-between">
+                <textarea id="descriptionField" name="description" rows="4" cols="50" class="formFullTextbox"><%= creature.description%></textarea>
+            </div>
+        </div>  
+        <div class="row mt-3">
+            <div class="col text-center">
+                <input type="submit" value="Update Creature Information" class="btn slytherin fw-bold  p-3">
+            </div>
+            <div class="col text-center">
+                <button class="btn gryffindor fw-bold p-3" type="button" onclick="window.location.href='/creatures?region=<%= chosenContinent %>'">Cancel</button>
+            </div>
+        </div>
+    </div>
+</form>

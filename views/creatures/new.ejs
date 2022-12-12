@@ -1,55 +1,72 @@
 <%- include("../partials/head.ejs")  %>
-<div class="row">
-    <div class="col text-center">
-        <h1>Log New Creature</h1>
+<form action="/creatures?region=<%chosenContinent%>" method="post" class="container formBlackBackdrop">
+    <div class="row">
+        <div class="col text-center">
+            <h1>Log New Creature</h1>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-1 justify-center"></div>
-    <div class="col">
-        <form action="/creatures?region=<%chosenContinent%>" method="post">
-            <div class="row">
-                <div class="col text-end"><p>Species Name:</p></div>
-                <div class="col"><input type="text" name="creatureName" placeholder="Species Name" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>M.O.M. Classification:</p></div>
-                <div class="col"><input type="text" name="ministryClassification" placeholder="(XXXX)"  class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Location:</p></div>
-                <div class="col"><input type="text" name="creatureLocation" placeholder="Location of Species" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Continent:</p></div>
-                <div class="col" class=""><p><%= chosenContinent %></p></div>
-                <input type="hidden" name="continent" value="<%= chosenContinent %>">
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Image URL:</p></div>
-                <div class="col"><input type="text" name="imageURL" placeholder="Image URL" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Check Box If Rare:</p></div>
-                <div class="col" class="fullWidth"><input type="checkbox" name="isRare"></div>
-            </div>
-            <div class="row">
-                <div class="col text-center"><p>Description:</p></div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <textarea id="txtid" name="description" rows="4" cols="50" class="fullWidth"></textarea>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col text-center">
-                    <input type="submit" value="Log New Creature" class="btn slytherin fw-bold largeImageDisplay p-3">
-                </div>
-                <div class="col text-center">
-                    <button class="btn gryffindor fw-bold largeImageDisplay p-3" type="button" onclick="window.location.href='/creatures?region=<%= chosenContinent %>'">Cancel</button>
-                </div>
-            </div>
-        </form>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="creatureNames">Species Name:</label>
+            <input type="text" name="creatureName" id="creatureNames" class="formHalfTextbox">
+        </div>  
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="rating">Classification:</label>
+            <input type="text" name="ministryClassification" id="rating" class="formHalfTextbox">
+        </div>  
     </div>
-    <div class="col-1"></div>
-</div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="creatureLocations">Known Location:</label>
+            <input type="text" name="creatureLocation" id="creatureLocations" class="formHalfTextbox">
+        </div>  
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="Continent">Continent:&ensp;</label>
+            <select name="" class="formHalfTextbox" id="Continent" disabled>
+                <option value="Africa" <%= (chosenContinent === "Africa") ? "selected" : "" %>>Africa</option>
+                <option value="Asia" <%= (chosenContinent === "Asia") ? "selected" : "" %>>Asia</option>
+                <option value="Australia" <%= (chosenContinent === "Australia") ? "selected" : "" %>>Australia</option>
+                <option value="NorthAmerica" <%= (chosenContinent === "NorthAmerica") ? "selected" : "" %>>North America</option>
+                <option value="SouthAmerica" <%= (chosenContinent=== "SouthAmerica") ? "selected" : "" %>>South America</option>
+                <option value="Europe" <%= (chosenContinent === "Europe") ? "selected" : "" %>>Europe</option>
+            </select>
+            <input type="hidden" name="continent" value="<%= chosenContinent %>">
+        </div>
+    </div>
+        <div class="row mt-3">
+            
+
+            <div class="col-lg-6 d-flex justify-content-between">
+                <label class="formLabelText" for="rarity">Check If Rare:</label>
+                <input type="checkbox" name="isRare" id="rarity" class="formHalfTextbox">
+            </div> 
+            <div class="col-lg-6 d-flex justify-content-between"></div> 
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <label class="formLabelText" for="imageURLS">Image URL</label>
+            </div>
+            <div class="col-lg-6">
+                <input type="text" name="imageURL" id="imageURLS" class="formFullTextbox mt-3">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="descriptionField" class="formLabelText">Description:</label>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col d-flex justify-content-between">
+                <textarea id="descriptionField" name="description" rows="4" cols="50" class="fullWidth"></textarea>
+            </div>
+        </div>  
+        <div class="row mt-3">
+            <div class="col text-center">
+                <input type="submit" value="Log New Creature" class="btn slytherin fw-bold  p-3">
+            </div>
+            <div class="col text-center">
+                <button class="btn gryffindor fw-bold p-3" type="button" onclick="window.location.href='/creatures?region=<%= chosenContinent %>'">Cancel</button>
+            </div>
+        </div>
+    </div>
+</form>
