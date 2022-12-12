@@ -5,7 +5,8 @@ let renderWasUsed = false;
 // Ways to deal with errors
 function errorCatcher(error, response) {
     renderWasUsed = true;
-    response.render("landingPages/error.ejs", {error: error,})
+    response.json(error)
+    // response.render("landingPages/error.ejs", {error: error,})
 }
 
 // SEED Route
@@ -82,6 +83,7 @@ BeingRouter.delete("/:id", async (request, response) => {
 
 // Update route for Beings ~~~ /items/:id ~~~ (PUT)
 BeingRouter.put("/:id", async (request, response) => {
+    request.body.affiliation = request.body.affiliation.split(",");
     await Being.findByIdAndUpdate(request.params.id, request.body).catch((error => errorCatcher(error, response)))
     if (!renderWasUsed) {
         response.redirect(`/beings?region=${request.query.region}`)
