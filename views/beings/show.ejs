@@ -1,15 +1,21 @@
 <%- include("../partials/head.ejs")  %>
+
+<!-- Modal Section -->
 <div class="modalViewer">
-    <div class="message text-center">
+    <div class="modalMessage text-center p-3">
         <h2>Confirm You Want To Delete The Page For:</h2>
         <br>
         <h1><%= being.firstName + " " + being.lastName %></h1>
         <form action="/beings/<%= being._id %>?_method=DELETE&region=<%= chosenContinent %>" method="post" class=" row d-flex justify-content-around mt-3">
-            <div class="col"><button class="gryffindor display-5" type="submit">Yes</button></div>
-            <div class="col"><button class="closeModal hufflepuff display-5" type="button">No</button></div>
+            <!-- Yes Button -->
+            <div class="col"><button class="btn gryffindor p-3" type="submit">Yes</button></div>
+            <!-- No Button -->
+            <div class="col"><button class="btn hufflepuff fw-bold p-3 closeModal" type="button">No</button></div>
         </form>
     </div>
 </div>
+<!-- End of Modal -->
+
 <div class="container">
     <div class="row">
         <div class="col"><h1 class="text-center"><%= being.firstName + " " + being.lastName %></h1></div>
@@ -21,8 +27,19 @@
     </div>
     <div class="row mt-3">
         <div class="col-1"></div>
-        <div class="col-5 border text-center blackBackground"><p>Category:<br><%= being.affiliation %></p></div>
-        <div class="col-5 text-center border blackBackground"><p>Birth Place:<br><%= being.birthPlace %></p></div>
+        <div class="col-5 border text-center blackBackground"><p>Mother:<br><%= being.motherName ? being.motherName : "Unknown" %></p></div>
+        <div class="col-5 text-center border blackBackground"><p>Father:<br><%= being.fatherName ? being.fatherName : "Unknown"%></p></div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5 border text-center blackBackground"><p>Birth Place:<br><%= being.birthPlace ? being.birthPlace : "Unknown" %></p></div>
+        <div class="col-5 text-center border blackBackground"><p>Alias:<br><%= being.alias ? being.alias : "None" %></p></div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col border blackBackground"><p>Categories:<br><%= being.affiliation %></p></div>
         <div class="col-1"></div>
     </div>
     <div class="row">

@@ -36,6 +36,20 @@ input[type=checkbox] {
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.8);
 }
 
+.largeImageDisplay {
+  width: 50%;
+}
+
+.landingImage {
+width: 35%;
+box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
+}
+.fullWidth {
+  width: 100%;
+}
+
+
+/* ~~~~~~~~~~ START OF House Button Format CSS ~~~~~~~~~~ */
 .gryffindor{
   background-color: #AE0001 !important;
   color: #D3A625 !important;
@@ -63,18 +77,7 @@ input[type=checkbox] {
   font-family: 'Henny Penny', cursive !important;
   width: 100%;
 }
-
-.largeImageDisplay {
-    width: 50%;
-}
-
-.landingImage {
-  width: 35%;
-  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
-}
-.fullWidth {
-    width: 100%;
-}
+/* ~~~~~~~~~~ END  OF House Button Format CSS ~~~~~~~~~~ */
 
 /* ~~~~~~~~~~ START OF Form Page CSS ~~~~~~~~~~ */
 
@@ -90,17 +93,14 @@ input[type=checkbox] {
   width: 100%;
   font-size: 1.6rem
 }
-
 .formLabelText {
   color: white;
   font-size: 1.6rem
 }
-
 .formBlackBackdrop {
   background-color: #00000054;
   padding: 1%;
 }
-
 .formSpan {
   font-weight: lighter;
   font-style: italic;
@@ -108,9 +108,13 @@ input[type=checkbox] {
 }
 
 
-/* ~~~~~~~~~~ END OF Form Page CSS ~~~~~~~~~~ */
 
 
+.message {
+  position: fixed;
+  top: 40vh;
+  left: 30vw;
+}
 .centerImage {
     display: flex;
     align-items: center;
@@ -121,11 +125,7 @@ input[type=checkbox] {
     height: 125%;
 }
 
-.indexImage {
-  width: 20rem; 
-  height: 20rem;
-  object-fit: cover;
-}
+
 
 .errorDiv {
   margin-top: 20%;
@@ -134,6 +134,17 @@ input[type=checkbox] {
 [type=submit] {
   border: none;
 }
+
+/* ~~~~~~~~~~ END OF Form Page CSS ~~~~~~~~~~ */
+
+/* ~~~~~~~~~~ START OF ITEMS Index CSS ~~~~~~~~~~ */
+.indexImage {
+  width: 20rem; 
+  height: 20rem;
+  object-fit: cover;
+}
+/* ~~~~~~~~~~ END OF ITEMS Index CSS ~~~~~~~~~~ */
+/* ~~~~~~~~~~ START OF MODAL CSS ~~~~~~~~~~ */
 .modalViewer {
 	position: absolute; 
   top: 0;
@@ -145,18 +156,19 @@ input[type=checkbox] {
   display: none;
 }
 
-.message {
+.modalMessage {
   position: fixed;
   top: 40vh;
   left: 30vw;
+  background-color: rgba(255, 255, 255, 0.171);
 }
+/* ~~~~~~~~~~ END OF MODAL CSS ~~~~~~~~~~ */
 
 /* ~~~~~~~~~~ Media Queries for Mobile ~~~~~~~~~~ */
 
 @media only screen and (max-width: 600px){
 
 /* ~~~~~~~~~~ START OF Form Page CSS ~~~~~~~~~~ */
-
 .formHalfTextbox {
   font-size: 1rem
 }
@@ -172,8 +184,21 @@ input[type=checkbox] {
 .formSpan {
   font-size: .8rem;
 }
-
 /* ~~~~~~~~~~ END OF Form Page CSS ~~~~~~~~~~ */
+
+/* ~~~~~~~~~~ START OF MODAL CSS ~~~~~~~~~~ */
+.modalViewer {
+  height: 300vw;
+}
+
+.modalMessage {
+  top: 30vh;
+  left: 0;
+}
+/* ~~~~~~~~~~ END OF MODAL CSS ~~~~~~~~~~ */
+
+
+
   p {
     font-size: 1rem;    
   }
@@ -204,10 +229,6 @@ input[type=checkbox] {
     width: 15rem; 
     height: 15rem;
     object-fit: cover;
-  }
-
-  .modalViewer {
-    height: 300vw;
   }
 
   .verticallyAlign {
