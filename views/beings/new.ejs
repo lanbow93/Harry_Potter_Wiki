@@ -1,54 +1,89 @@
 <%- include("../partials/head.ejs")  %>
-<div class="row">
-    <div class="col text-center">
-        <h1>Log New Being</h1>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-1 justify-center"></div>
-    <div class="col">
-        <form action='/beings/?region=<%= chosenContinent %></form> method="post"' >
-            <div class="row">
-                <div class="col text-end"><p>First Name:</p></div>
-                <div class="col"><input type="text" name="firstName" placeholder="First Name" class="fullWidth"></div>
-                <div class="col text-end"><p>Last Name:</p></div>
-                <div class="col"><input type="text" name="lastName" placeholder="Last Name" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Continent:</p></div>
-                <div class="col" class=""><p><%= chosenContinent %></p></div>
-                <input type="hidden" name="continent" value="<%= chosenContinent %>">
-            </div>
-            <div class="col text-end"><p>Mother's Name:</p></div>
-            <div class="col"><input type="text" name="motherName" placeholder="Mother's Name" class="fullWidth"></div>
-            <div class="col text-end"><p>Father's Name:</p></div>
-            <div class="col"><input type="text" name="motherName" placeholder="Father's Name" class="fullWidth"></div>
-            <div class="row">
-                <div class="col text-end"><p>Birth Place:</p></div>
-                <div class="col"><input type="text" name="birthPlace" placeholder="Egypt, England, Etc" class="fullWidth"></div>
-            </div>
-            <div class="row">
-                <div class="col text-end"><p>Image URL:</p></div>
-                <div class="col"><input type="text" name="imageURL" placeholder="www.imageURL.com" class="fullWidth"></div>
-            </div>
-            <div class="col text-end"><p>Affiliations:</p><br><p>Format: "Student, Business Name, Ravenclaw"</p></div>
-            <div class="col"><input type="text" name="affiliation" placeholder="First Name" class="fullWidth"></div>
-            <div class="row">
-                <div class="col text-center">
-                    <textarea id="txtid" name="description" rows="4" cols="50" class="fullWidth">
-                </textarea></div>
-            </div>
-            <div class="row mt-3">
-                <div class="row mt-3">
-                    <div class="col text-center">
-                        <input type="submit" value="Log New Location" class="btn slytherin fw-bold largeImageDisplay p-3">
-                    </div>
-                    <div class="col text-center">
-                        <button class="btn gryffindor fw-bold largeImageDisplay p-3" type="button" onclick="window.location.href='/locations?region=<%= chosenContinent %>'">Cancel</button>
-                    </div>
-                </div>
-        </form>
+<form action="/beings?region=<%=chosenContinent%>" method="post" class="container formBlackBackdrop">
+    <div class="row">
+        <div class="col text-center">
+            <h1>New Being</h1>
+        </div>
     </div>
-    <div class="col-1"></div>
-</div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="firstNameInput">First Name:</label>
+            <input type="text" name="firstName" id="firstNameInput" class="formHalfTextbox">
+        </div>
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="lastNameInput">Last Name:</label>
+            <input type="text" name="lastName" id="lastNameInput"  class="formHalfTextbox" >
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="motherNameInput">Mother's Name:</label>
+            <input type="text" name="motherName" id="motherNameInput" class="formHalfTextbox">
+        </div>
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="fatherNameInput">Father's Name:</label>
+            <input type="text" name="fatherName" id="fatherNameInput" class="formHalfTextbox">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="birthPlaces">Birth Place:</label>
+            <input type="text" name="birthPlace" id="birthPlaces" class="formHalfTextbox">
+        </div>
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="aliases">Alias:</label>
+            <input type="text" name="alias" id="aliases" class="formHalfTextbox">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="aliases">Continent:&ensp;</label>
+            <select name="" class="formHalfTextbox" disabled>
+                <option value="Africa" <%= (chosenContinent === "Africa") ? "selected" : "" %>>Africa</option>
+                <option value="Asia" <%= (chosenContinent === "Asia") ? "selected" : "" %>>Asia</option>
+                <option value="Australia" <%= (chosenContinent === "Australia") ? "selected" : "" %>>Australia</option>
+                <option value="NorthAmerica" <%= (chosenContinent === "NorthAmerica") ? "selected" : "" %>>North America</option>
+                <option value="SouthAmerica" <%= (chosenContinent=== "SouthAmerica") ? "selected" : "" %>>South America</option>
+                <option value="Europe" <%= (chosenContinent === "Europe") ? "selected" : "" %>>Europe</option>
+            </select>
+            <input type="hidden" name="continent" value="<%= chosenContinent %>">
+        </div>
+        <div class="col-lg-6"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6">
+            <label class="formLabelText" for="imageURLS">Image URL</label>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" name="imageURL" id="imageURLS" class="formFullTextbox mt-3">
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-6 d-flex justify-content-between">
+            <label class="formLabelText" for="affiliations">Affiliations<br><span class="formSpan">Format: "Student, Business Name, Ravenclaw"</span></label>
+        </div>
+        <div class="col-lg-6">
+            <input type="text" name="affiliation" id="affiliations" class="formFullTextbox mt-3"> 
+        </div>
+    </div> 
+    <div class="row mt-3">
+        <div class="col">
+            <label for="descriptionField" class="formLabelText">Description:</label>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col d-flex justify-content-between">
+            <textarea id="descriptionField" name="description" rows="4" cols="50" class="fullWidth"></textarea>
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-lg-6 mt-3">
+            <button type="button" class="btn hufflepuff fw-bold" onclick="window.location.href='/beings?region=<%= chosenContinent %>'" >Cancel </button>
+        </div>
+        <div class="col-lg-6 mt-3">
+            <button type="submit" class="btn ravenclaw fw-bold">Submit New Being</button>
+        </div>
+    </div>
+</form>
