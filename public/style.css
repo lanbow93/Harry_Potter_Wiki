@@ -1,5 +1,9 @@
- *{
-    font-weight: bold;
+
+
+
+/* ~~~~~~~~~~~ DO NOT DELETE ~~~~~~~~~~ */
+* {
+  font-weight: bold;
 }
 
 body { 
@@ -15,38 +19,50 @@ h1,h2,h3,h4,h5 {
   color: white;
 }
 
-a, a:hover, a:focus, a:active {
-  text-decoration: none;
-  color: inherit;
-}
-
-
-
 p {
   color: white;
   font-size: 1.6rem;
 }
 
-input[type=checkbox] {
-  width: 2rem;
-  height: 2rem
-}
-
-.blackBackground {
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.8);
-}
 
 .largeImageDisplay {
   width: 50%;
 }
 
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
 .landingImage {
-width: 35%;
-box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
+  width: 35%;
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
+  }
+
+.blackBackground {
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.8);
 }
-.fullWidth {
-  width: 100%;
+
+.centerImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.creatureEdit {
+  width: 30%;
+  height: 125%;
+}
+
+.errorDiv {
+margin-top: 20%;
+}
+
+
+[type=submit] {
+  border: none;
+}
+
+
 
 
 /* ~~~~~~~~~~ START OF House Button Format CSS ~~~~~~~~~~ */
@@ -68,7 +84,6 @@ box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
   color: #C0C0C0 !important;
   font-family: 'Henny Penny', cursive !important;
   width: 100%;
-
 }
 
 .hufflepuff{
@@ -107,34 +122,6 @@ box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
   font-size: 1.2rem;
 }
 
-
-
-
-.message {
-  position: fixed;
-  top: 40vh;
-  left: 30vw;
-}
-.centerImage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.creatureEdit {
-    width: 30%;
-    height: 125%;
-}
-
-
-
-.errorDiv {
-  margin-top: 20%;
-}
-
-[type=submit] {
-  border: none;
-}
-
 /* ~~~~~~~~~~ END OF Form Page CSS ~~~~~~~~~~ */
 
 /* ~~~~~~~~~~ START OF ITEMS Index CSS ~~~~~~~~~~ */
@@ -144,6 +131,7 @@ box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
   object-fit: cover;
 }
 /* ~~~~~~~~~~ END OF ITEMS Index CSS ~~~~~~~~~~ */
+
 /* ~~~~~~~~~~ START OF MODAL CSS ~~~~~~~~~~ */
 .modalViewer {
 	position: absolute; 
@@ -190,27 +178,14 @@ box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.26);
 .modalViewer {
   height: 300vw;
 }
-
 .modalMessage {
   top: 30vh;
   left: 0;
 }
 /* ~~~~~~~~~~ END OF MODAL CSS ~~~~~~~~~~ */
 
-
-
   p {
     font-size: 1rem;    
-  }
-
-
-  .fullWidth{
-    width: 100%;
-  }
-  .message {
-    position: fixed;
-    top: 30vh;
-    left: 0;
   }
 	
   .landingTitle {

@@ -76,7 +76,7 @@ LocationRouter.get("/seed", async (request, response) => {
 // Index route for Locations: ~~~ /items ~~~ (GET)
 LocationRouter.get("/", async (request, response) => {
     const chosenContinent = request.query.region
-    const locations = await Location.find({continent: chosenContinent}).catch((error => errorCatcher(error, response)))
+    const locations = await Location.find({continent: chosenContinent}).sort({locationName: 1}).catch((error => errorCatcher(error, response)))
 
     if (!renderWasUsed) {
         response.render("locations/index.ejs", {locations: locations, chosenContinent: chosenContinent})

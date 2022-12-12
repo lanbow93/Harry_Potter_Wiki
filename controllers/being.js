@@ -57,7 +57,7 @@ BeingRouter.get("/seed", async (request, response) => {
 // Index route for Beings: ~~~ /items ~~~ (GET)
 BeingRouter.get("/", async (request, response) => {
     const chosenContinent = request.query.region
-    const beings = await Being.find({continent: chosenContinent}).catch((error => errorCatcher(error, response)))
+    const beings = await Being.find({continent: chosenContinent}).sort({firstName: 1}).catch((error => errorCatcher(error, response)))
 
     if (!renderWasUsed) {
         response.render("beings/index.ejs", {beings: beings, chosenContinent: chosenContinent})

@@ -11,7 +11,7 @@ function errorCatcher(error, response) {
 // Index route for Creatures: ~~~ /items ~~~ (GET)
 CreatureRouter.get("/", async (request, response) => {
     const chosenContinent = request.query.region
-    const creatures = await Creature.find({continent: request.query.region}).catch((error => errorCatcher(error, response)))
+    const creatures = await Creature.find({continent: request.query.region}).sort({creatureName: 1}).catch((error => errorCatcher(error, response)))
     if (!renderWasUsed) {
         response.render("creatures/index.ejs", {creatures: creatures, chosenContinent: chosenContinent})
     } else {
