@@ -5,9 +5,3 @@ const $confirmModal = $(".modalViewer");
 
 $closeModalButton.on("click", () => {$confirmModal.css("display", "none")})
 $confirmPopup.on("click", () => {$confirmModal.css("display", "unset")})
-
-
-
-
-
-

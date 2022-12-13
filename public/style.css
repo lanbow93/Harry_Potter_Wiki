@@ -1,6 +1,4 @@
 
-
-
 /* ~~~~~~~~~~~ DO NOT DELETE ~~~~~~~~~~ */
 * {
   font-weight: bold;
@@ -22,6 +20,10 @@ h1,h2,h3,h4,h5 {
 p {
   color: white;
   font-size: 1.6rem;
+}
+
+.fancy {
+  font-family: 'Henny Penny', cursive;
 }
 
 
@@ -64,7 +66,6 @@ margin-top: 20%;
 
 
 
-
 /* ~~~~~~~~~~ START OF House Button Format CSS ~~~~~~~~~~ */
 .gryffindor{
   background-color: #AE0001 !important;
@@ -92,7 +93,6 @@ margin-top: 20%;
   font-family: 'Henny Penny', cursive !important;
   width: 100%;
 }
-/* ~~~~~~~~~~ END  OF House Button Format CSS ~~~~~~~~~~ */
 
 /* ~~~~~~~~~~ START OF Form Page CSS ~~~~~~~~~~ */
 
@@ -122,15 +122,12 @@ margin-top: 20%;
   font-size: 1.2rem;
 }
 
-/* ~~~~~~~~~~ END OF Form Page CSS ~~~~~~~~~~ */
-
 /* ~~~~~~~~~~ START OF ITEMS Index CSS ~~~~~~~~~~ */
 .indexImage {
   width: 20rem; 
   height: 20rem;
   object-fit: cover;
 }
-/* ~~~~~~~~~~ END OF ITEMS Index CSS ~~~~~~~~~~ */
 
 /* ~~~~~~~~~~ START OF MODAL CSS ~~~~~~~~~~ */
 .modalViewer {
@@ -148,15 +145,15 @@ margin-top: 20%;
   position: fixed;
   top: 40vh;
   left: 30vw;
+  padding: 1%;
   background-color: rgba(255, 255, 255, 0.171);
 }
-/* ~~~~~~~~~~ END OF MODAL CSS ~~~~~~~~~~ */
 
 /* ~~~~~~~~~~ Media Queries for Mobile ~~~~~~~~~~ */
 
 @media only screen and (max-width: 600px){
 
-/* ~~~~~~~~~~ START OF Form Page CSS ~~~~~~~~~~ */
+/* ~~~~~~~~~~ START OF Mobile Form Page CSS ~~~~~~~~~~ */
 .formHalfTextbox {
   font-size: 1rem
 }
@@ -172,9 +169,8 @@ margin-top: 20%;
 .formSpan {
   font-size: .8rem;
 }
-/* ~~~~~~~~~~ END OF Form Page CSS ~~~~~~~~~~ */
 
-/* ~~~~~~~~~~ START OF MODAL CSS ~~~~~~~~~~ */
+/* ~~~~~~~~~~ START OF Mobile MODAL CSS ~~~~~~~~~~ */
 .modalViewer {
   height: 300vw;
 }
@@ -182,7 +178,8 @@ margin-top: 20%;
   top: 30vh;
   left: 0;
 }
-/* ~~~~~~~~~~ END OF MODAL CSS ~~~~~~~~~~ */
+
+/* ~~~~~~~~~~ Do Not Delete  ~~~~~~~~~~ */
 
   p {
     font-size: 1rem;    

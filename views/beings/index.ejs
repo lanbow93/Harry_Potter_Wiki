@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row ">
-        <div class="col"><h1 class="text-center">List of Beings</h1></div>
+        <div class="col"><h1 class="text-center mt-3">List of Beings</h1></div>
     </div>
     <div class="row">
         <div class="col-lg-3 text-center mt-3">
@@ -15,7 +15,7 @@
     </div>
     <div class="row d-flex justify-content-between mt-3">
         <%for (let i=0; i<beings.length; i++) { %>
-            <div class="col-lg-3 text-center px-0">
+            <div class="col-lg-3 text-center px-0 mt-5">
                 <h2 class="text-white mt-3"><%= beings[i].firstName + " " + beings[i].lastName%></h2>
                 <a href="/beings/<%= beings[i]._id%>?region=<%= chosenContinent %>">
                     <img src="<%= beings[i].imageURL %>" alt="Image of a <%= beings[i].firstName + ' ' + beings[i].lastName %>" class="indexImage border border-4 rounded-circle">
